@@ -200,4 +200,162 @@
             </p>
 
             <div class="note-box">
-                <strong>Vérification :</strong> La température de surface du radiateur serait $T_r = 
+                <strong>Vérification :</strong> La température de surface du radiateur serait $T_r = \dfrac{P}{h_r S_r} + T_{\text{int}} \approx 60\;°\text{C}$ (avec $S_r = 3\;\text{m}^2$, $h_r = 10\;\text{W·m}^{-2}\text{·K}^{-1}$). C'est cohérent avec un radiateur classique.
+            </div>
+        </section>
+
+        <!-- ==================== 3. VERSION SIMPLE ==================== -->
+        <section class="block">
+            <h2>3. Résultat : Version Simple</h2>
+            <p class="text">
+                Dans cette première approche, on suppose que la température chute très peu pendant la nuit (confirmé dans la section suivante). L'énergie économisée est simplement celle que le radiateur n'a pas fournie pendant 6 h :
+            </p>
+            <div class="formula-box highlight">
+                <p class="formula-title">Énergie économisée par salle et par nuit</p>
+                $$E = P \times \Delta t = 1{,}25 \times 10^{3} \times 6 \times 3600 = 2{,}7 \times 10^{7}\;\text{J}$$
+            </div>
+        </section>
+
+        <!-- ==================== 4. VERSION COMPLEXE ==================== -->
+        <section class="block">
+            <h2>4. Modèle Dynamique : « Faut-il chauffer plus fort le matin ? »</h2>
+            <p class="text">
+                La version simple suppose que l'économie est totale. Mais si la salle se refroidit beaucoup, il faudrait surchauffer le matin — ce qui réduirait l'économie. Vérifions avec un modèle dynamique.
+            </p>
+
+            <h3>4.1 Chronologie</h3>
+            <ul class="text list">
+                <li>$t_0 = 0\;\text{h}$ (20 h) : on coupe le chauffage</li>
+                <li>$t_1 = 6\;\text{h}$ (2 h du matin) : on rallume le chauffage</li>
+                <li>$t_2 = 11\;\text{h}$ (7 h du matin) : ouverture de l'ENISE</li>
+            </ul>
+
+            <h3>4.2 Capacité thermique du système</h3>
+            <p class="text">
+                Il ne faut pas prendre en compte uniquement l'air, mais aussi l'inertie thermique des murs, du sol et du plafond en béton.
+            </p>
+
+            <div class="formula-box">
+                <p class="formula-title">Capacité thermique de l'air</p>
+                $$C_{\text{air}} = \rho_{\text{air}}\, c_{\text{air}}\, V = 1 \times 1000 \times 280 = 2{,}8 \times 10^{5}\;\text{J·K}^{-1}$$
+                <p class="formula-note">avec $\rho_{\text{air}} = 1\;\text{kg·m}^{-3}$, $c_{\text{air}} = 1000\;\text{J·kg}^{-1}\text{·K}^{-1}$</p>
+            </div>
+
+            <div class="formula-box">
+                <p class="formula-title">Capacité thermique du béton</p>
+                <p class="formula-note" style="margin-bottom:8px;">
+                    Pour un solide, $C_{\text{molaire}} \approx 3R = 25\;\text{J·mol}^{-1}\text{·K}^{-1}$ (loi de Dulong-Petit).<br>
+                    En assimilant le béton à du SiO₂ : $M_{\text{béton}} = 60\;\text{g·mol}^{-1}$, d'où $c_{\text{béton}} = \dfrac{C_{\text{molaire}}}{M_{\text{béton}}} \approx 400\;\text{J·kg}^{-1}\text{·K}^{-1}$.<br>
+                    On estime $\rho_{\text{béton}} \approx 3000\;\text{kg·m}^{-3}$.
+                </p>
+                <p class="formula-note" style="margin-bottom:8px;">
+                    Surface de béton (sol + plafond + 2 murs intérieurs sur 3) : $S \approx 2 \times 80 + 2 \times 9 \times 3{,}5 \approx 220\;\text{m}^2$.<br>
+                    Épaisseur participante : $e = 10\;\text{cm}$ → Volume : $V_{\text{béton}} \approx 22\;\text{m}^3$.
+                </p>
+                $$C_{\text{béton}} = \rho_{\text{béton}}\, c_{\text{béton}}\, V_{\text{béton}} = 3000 \times 400 \times 22 = 2{,}6 \times 10^{7}\;\text{J·K}^{-1}$$
+            </div>
+
+            <div class="formula-box highlight">
+                <p class="formula-title">Capacité thermique totale</p>
+                $$C_m = C_{\text{air}} + C_{\text{béton}} \approx C_{\text{béton}} \approx 2{,}6 \times 10^{7}\;\text{J·K}^{-1}$$
+                <p class="formula-note">L'inertie thermique est totalement dominée par le béton.</p>
+            </div>
+
+            <h3>4.3 Phase 1 : Refroidissement libre (t₀ → t₁)</h3>
+            <p class="text">
+                Le chauffage est coupé. Le premier principe de la thermodynamique donne :
+            </p>
+
+            <div class="formula-box">
+                <p class="formula-title">Équation différentielle</p>
+                $$C_m \frac{dT}{dt} = -\frac{T - T_{\text{ext}}}{R_{\text{eq}}}$$
+                $$\Longrightarrow \quad \frac{dT}{dt} + \frac{1}{C_m R_{\text{eq}}}\,T = \frac{T_{\text{ext}}}{C_m R_{\text{eq}}}$$
+            </div>
+
+            <div class="formula-box highlight">
+                <p class="formula-title">Solution avec condition initiale $T(0) = T_{\text{int}}$</p>
+                $$\boxed{T(t) = (T_{\text{int}} - T_{\text{ext}})\, e^{-t/(C_m R_{\text{eq}})} + T_{\text{ext}}}$$
+            </div>
+
+            <p class="text">
+                Application numérique à $t_1 = 6\;\text{h} = 21\,600\;\text{s}$ :
+            </p>
+            <div class="result-box">
+                $$T(t_1) = (16 - 2)\, e^{-21600/(2{,}6 \times 10^7 \times 1{,}2 \times 10^{-2})} + 2 \approx 15\;°\text{C}$$
+                <p class="result-comment">La température ne chute que d'environ <strong>1 °C</strong> en 6 heures.</p>
+            </div>
+
+            <h3>4.4 Phase 2 : Réchauffage par le radiateur (t₁ → t₂)</h3>
+            <p class="text">
+                À $t_1$, le chauffage est rallumé avec la même puissance $P_r$ qu'en régime normal :
+            </p>
+
+            <div class="formula-box">
+                <p class="formula-title">Équation différentielle avec chauffage</p>
+                $$C_m \frac{dT}{dt} = P_{r} - \frac{T - T_{\text{ext}}}{R_{\text{eq}}}$$
+                $$\Longrightarrow \quad T(t) = A\, e^{-t/(C_m R_{\text{eq}})} + T_{\text{ext}} + P_r R_{\text{eq}}$$
+            </div>
+
+            <div class="formula-box highlight">
+                <p class="formula-title">Solution avec condition initiale $T(t_1)$</p>
+                $$\boxed{T(t) = \Big(T(t_1) - T_{\text{ext}} - P_r R_{\text{eq}}\Big)\, \exp\!\left(\frac{t_1 - t}{C_m R_{\text{eq}}}\right) + T_{\text{ext}} + P_r R_{\text{eq}}}$$
+            </div>
+
+            <p class="text">
+                Application numérique à $t_2 = 11\;\text{h}$ (ouverture de l'ENISE) :
+            </p>
+            <div class="result-box">
+                $$T(t_2) \approx 15{,}9\;°\text{C} \approx T_{\text{int}}$$
+                <p class="result-comment">Le radiateur standard suffit à ramener la salle à 16 °C à temps. <strong>Pas besoin de surchauffer.</strong></p>
+            </div>
+        </section>
+
+        <!-- ==================== 5. BILAN ==================== -->
+        <section class="block">
+            <h2>5. À l'échelle de l'ENISE</h2>
+            <p class="text">
+                Puisqu'il n'est pas nécessaire de chauffer plus fort le matin, l'économie calculée dans la version simple est <strong>totale</strong>. On extrapole maintenant à l'ensemble du bâtiment.
+            </p>
+
+            <ul class="text list">
+                <li>Environ <strong>100 salles de cours</strong> équivalentes</li>
+                <li>Couloirs, toilettes, bibliothèque, etc. ≈ <strong>30 salles supplémentaires</strong></li>
+                <li>Total : <strong>130 salles</strong>, soit environ 400 m² de radiateurs</li>
+            </ul>
+
+            <div class="formula-box">
+                <p class="formula-title">Énergie totale économisée par nuit</p>
+                $$E_{\text{totale}} = 130 \times 2{,}7 \times 10^{7}\;\text{J} = 3{,}5 \times 10^{9}\;\text{J}$$
+                $$1\;\text{kWh} = 3{,}6 \times 10^{6}\;\text{J} \quad \Longrightarrow \quad E_{\text{totale}} \approx \frac{3{,}5 \times 10^{9}}{3{,}6 \times 10^{6}} \approx 1\,000\;\text{kWh}$$
+            </div>
+
+            <div class="result-box final">
+                <p class="result-label">Économie financière par nuit</p>
+                <p class="result-big">
+                    1 000 kWh × 0,16 €/kWh = <strong>160 € par nuit</strong>
+                </p>
+                <p class="result-comment" style="margin-top:12px;">
+                    Sur une saison de chauffe d'environ <strong>180 nuits</strong> (octobre à avril), cela représente près de <strong>29 000 € d'économies par an</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==================== 6. CONCLUSION ==================== -->
+        <section class="block end">
+            <h2>6. Conclusion</h2>
+            <p class="text">
+                Le modèle est formel : grâce à l'énorme inertie thermique du béton, la température d'une salle ne chute que d'environ <strong>1 °C</strong> en 6 heures de coupure nocturne. Le chauffage standard suffit à ramener la température de consigne avant l'arrivée des étudiants à 7 h.
+            </p>
+            <p class="text" style="margin-top:16px;">
+                L'économie est donc <strong>totale</strong> : il n'y a aucune surconsommation compensatoire le matin. À l'échelle de l'ENISE, cette mesure simple permet d'économiser environ <strong>1 000 kWh et 160 € chaque nuit</strong>, soit de l'ordre de <strong>30 000 € par saison de chauffe</strong>.
+            </p>
+
+            <div class="note-box" style="margin-top:24px;">
+                <strong>Limites du modèle :</strong> Nous avons supposé une température extérieure constante de 2 °C, une étanchéité parfaite (pas d'infiltrations d'air), et des matériaux homogènes. Un modèle plus fin prendrait en compte la variation nocturne de température, la ventilation, et l'hétérogénéité du bâti.
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>
