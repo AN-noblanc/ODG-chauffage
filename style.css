@@ -54,6 +54,14 @@ h2 {
     margin-bottom: 20px;
 }
 
+h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 36px;
+    margin-bottom: 12px;
+    color: #2c3e50;
+}
+
 .text {
     font-size: 1.1rem;
     color: #444;
@@ -66,4 +74,131 @@ h2 {
 
 .end {
     padding-bottom: 160px;
+}
+
+/* ===== LISTES ===== */
+.list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 6px;
+}
+
+.list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* ===== ENCADRÉS FORMULES ===== */
+.formula-box {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-left: 4px solid #2c3e50;
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+.formula-box.highlight {
+    border-left-color: #27ae60;
+    background: #f0faf4;
+}
+
+.formula-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.formula-note {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+/* ===== ENCADRÉS RÉSULTATS ===== */
+.result-box {
+    background: #fef9e7;
+    border: 2px solid #f1c40f;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.result-box.final {
+    background: #eafaf1;
+    border-color: #27ae60;
+}
+
+.result-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.result-comment {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* ===== NOTES / REMARQUES ===== */
+.note-box {
+    background: #f4f6f7;
+    border-left: 4px solid #95a5a6;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* ===== SCHÉMA SVG ===== */
+.schema-container {
+    margin: 24px 0;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+}
+
+.circuit-svg {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .formula-box,
+    .result-box,
+    .note-box {
+        padding: 14px 16px;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
 }
