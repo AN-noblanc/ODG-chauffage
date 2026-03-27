@@ -24,12 +24,11 @@
 
     <!-- ==================== HERO ==================== -->
     <section class="hero">
+        <div class="hero-bg"></div>
         <div class="hero-inner">
             <p class="tag">Projet — Ordre de Grandeur</p>
             <h1>Combien économise l'ENISE en coupant le chauffage <span class="accent">6 h</span> chaque nuit ?</h1>
-            <p class="hero-sub">
-                Modélisation thermodynamique · Estimation énergétique · Bilan financier
-            </p>
+            <p class="hero-sub">Modélisation thermodynamique · Estimation énergétique · Bilan financier</p>
             <div class="scroll-hint">
                 <span>Défiler</span>
                 <div class="scroll-arrow"></div>
@@ -39,403 +38,361 @@
 
     <main class="page">
 
-        <!-- ==================== 1. POSTULAT ==================== -->
-        <section class="block card-section">
-            <div class="section-number">01</div>
-            <h2>Caractéristiques de la salle étudiée</h2>
-            <p class="text">
-                On modélise une salle de cours typique de l'ENISE comme un système thermodynamique fermé.
-            </p>
+        <!-- ==================== 01. POSTULAT ==================== -->
+        <section class="section-wrapper warm-bg">
+            <div class="block">
+                <div class="section-number">01</div>
+                <h2>Caractéristiques de la salle étudiée</h2>
+                <p class="text">On modélise une salle de cours typique de l'ENISE comme un système thermodynamique fermé.</p>
 
-            <div class="cards-row">
-                <div class="info-card">
-                    <div class="info-card-icon">📐</div>
-                    <div class="info-card-value">80 m²</div>
-                    <div class="info-card-label">Surface au sol</div>
+                <div class="cards-row">
+                    <div class="info-card">
+                        <div class="info-card-icon">📐</div>
+                        <div class="info-card-value">80 m²</div>
+                        <div class="info-card-label">Surface au sol</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">📏</div>
+                        <div class="info-card-value">3,5 m</div>
+                        <div class="info-card-label">Hauteur sous plafond</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">🌡️</div>
+                        <div class="info-card-value">16 °C</div>
+                        <div class="info-card-label">T<sub>int</sub> (consigne)</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">❄️</div>
+                        <div class="info-card-value">2 °C</div>
+                        <div class="info-card-label">T<sub>ext</sub> (nuit)</div>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <div class="info-card-icon">📏</div>
-                    <div class="info-card-value">3,5 m</div>
-                    <div class="info-card-label">Hauteur sous plafond</div>
-                </div>
-                <div class="info-card">
-                    <div class="info-card-icon">🌡️</div>
-                    <div class="info-card-value">16 °C</div>
-                    <div class="info-card-label">T<sub>int</sub> (consigne)</div>
-                </div>
-                <div class="info-card">
-                    <div class="info-card-icon">❄️</div>
-                    <div class="info-card-value">2 °C</div>
-                    <div class="info-card-label">T<sub>ext</sub> (nuit)</div>
-                </div>
-            </div>
 
-            <div class="hypothesis-box">
-                <h4>Hypothèses simplificatrices</h4>
-                <ul class="text list">
-                    <li>3 faces sur 4 sont mitoyennes avec des pièces adjacentes subissant les mêmes évolutions thermiques → <strong>absence de gradient de température</strong>, donc pas de transfert à travers ces parois.</li>
-                    <li>Une seule face de <strong>9 × 3,5 m</strong> est en contact avec l'extérieur, constituée de :
-                        <ul class="sub-list">
-                            <li>2/3 de vitrage → $S_v = 21\;\text{m}^2$</li>
-                            <li>1/3 de béton → $S_m = 10{,}5\;\text{m}^2$</li>
-                        </ul>
-                    </li>
-                    <li>Le plafond et le sol sont supposés <strong>parfaitement isolés</strong>.</li>
-                </ul>
+                <div class="hypothesis-box">
+                    <h4>Hypothèses simplificatrices</h4>
+                    <ul class="text list">
+                        <li>3 faces sur 4 sont en contact avec des pièces adjacentes subissant les mêmes évolutions thermiques (même température à tout instant → absence de gradient). On néglige donc les transferts à travers ces parois.</li>
+                        <li>Une seule face de <strong>9 × 3,5 m</strong> est en contact avec l'extérieur :
+                            <ul class="sub-list">
+                                <li>2/3 de vitrage → $S_v = 21\;\text{m}^2$</li>
+                                <li>1/3 de béton → $S_m = 10{,}5\;\text{m}^2$</li>
+                            </ul>
+                        </li>
+                        <li>Le plafond et le sol sont supposés <strong>parfaitement isolés</strong>.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <!-- ==================== 2. RÉSISTANCES ==================== -->
-        <section class="block">
-            <div class="section-number">02</div>
-            <h2>Résistance thermique équivalente</h2>
+        <!-- ==================== 02. RÉSISTANCES ==================== -->
+        <section class="section-wrapper">
+            <div class="block">
+                <div class="section-number">02</div>
+                <h2>Résistance thermique équivalente</h2>
 
-            <div class="two-col">
-                <div class="col">
-                    <h3>Résistance liée à la conduction</h3>
-                    <div class="formula-box">
-                        <p class="formula-title">Vitrage</p>
-                        $$R_v = 0{,}002\;\text{K·m}^2\text{·W}^{-1}$$
-                        <p class="formula-source">📖 Chap. 11, p. 11</p>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Résistance liée à la conduction</h3>
+                        <div class="formula-box">
+                            <p class="formula-title">Vitrage</p>
+                            $$R_v = 0{,}002\;\text{K·m}^2\text{·W}^{-1}$$
+                            <p class="formula-note">(cf. chap. 11, p. 11)</p>
+                        </div>
+                        <div class="formula-box">
+                            <p class="formula-title">Béton</p>
+                            $$R_m = \frac{e}{\lambda_m} = \frac{0{,}2}{2} = 0{,}1\;\text{K·m}^2\text{·W}^{-1}$$
+                            <p class="formula-note">avec $\lambda_m = 2\;\text{W·m}^{-1}\text{·K}^{-1}$, $e = 0{,}2\;\text{m}$ (cf. chap. 11, p. 11)</p>
+                        </div>
                     </div>
-                    <div class="formula-box">
-                        <p class="formula-title">Béton (conduction)</p>
-                        $$R_m = \frac{e}{\lambda_m} = \frac{0{,}2}{2} = 0{,}1\;\text{K·m}^2\text{·W}^{-1}$$
-                        <p class="formula-note">avec $\lambda_m = 2\;\text{W·m}^{-1}\text{·K}^{-1}$, $e = 0{,}2\;\text{m}$</p>
-                        <p class="formula-source">📖 Chap. 11, p. 11</p>
+                    <div class="col">
+                        <h3>Résistance liée aux échanges de surface</h3>
+                        <p class="text">
+                            $h_{\text{int}}$ (resp. $h_{\text{ext}}$) est le coefficient de transfert thermique de surface entre une paroi et l'air intérieur (resp. extérieur). Par la loi de Newton :
+                        </p>
+                        <div class="formula-box">
+                            <p class="formula-title">Coefficients & résistances surfaciques</p>
+                            $$h_{\text{int}} = 10\;\text{W·m}^{-2}\text{·K}^{-1} \quad \Rightarrow \quad R_{s\,\text{int}} = \frac{1}{h_{\text{int}}}$$
+                            $$h_{\text{ext}} = 20\;\text{W·m}^{-2}\text{·K}^{-1} \quad \Rightarrow \quad R_{s\,\text{ext}} = \frac{1}{h_{\text{ext}}}$$
+                            <p class="formula-note">(cf. chap. 11, TD)</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <h3>Résistance liée aux échanges de surface</h3>
-                    <p class="text">
-                        Les coefficients de transfert thermique de surface décrivent l'échange entre une surface et l'air environnant (loi de Newton) :
+
+                <h3>Schéma du circuit thermique</h3>
+                <p class="text">Deux branches en parallèle (béton / vitrage), chacune composée de trois résistances en série divisées par la surface correspondante :</p>
+
+                <div class="schema-container">
+                    <svg viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg" class="circuit-svg">
+                        <text x="42" y="120" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">int</tspan></text>
+                        <line x1="70" y1="115" x2="110" y2="115" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <line x1="110" y1="115" x2="110" y2="60" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <line x1="110" y1="115" x2="110" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <line x1="110" y1="60" x2="140" y2="60" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <rect x="140" y="40" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
+                        <text x="185" y="55" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">s int</tspan></text>
+                        <line x1="158" y1="65" x2="212" y2="65" stroke="#2d2a3e" stroke-width="0.8"/>
+                        <text x="185" y="76" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">m</tspan></text>
+                        <line x1="230" y1="60" x2="260" y2="60" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <rect x="260" y="40" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
+                        <text x="305" y="55" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">m</tspan></text>
+                        <line x1="278" y1="65" x2="332" y2="65" stroke="#2d2a3e" stroke-width="0.8"/>
+                        <text x="305" y="76" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">m</tspan></text>
+                        <line x1="350" y1="60" x2="380" y2="60" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <rect x="380" y="40" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
+                        <text x="425" y="55" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">s ext</tspan></text>
+                        <line x1="398" y1="65" x2="452" y2="65" stroke="#2d2a3e" stroke-width="0.8"/>
+                        <text x="425" y="76" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">m</tspan></text>
+                        <line x1="470" y1="60" x2="510" y2="60" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <line x1="110" y1="170" x2="140" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <rect x="140" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
+                        <text x="185" y="165" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">s int</tspan></text>
+                        <line x1="158" y1="175" x2="212" y2="175" stroke="#2d2a3e" stroke-width="0.8"/>
+                        <text x="185" y="186" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">v</tspan></text>
+                        <line x1="230" y1="170" x2="260" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <rect x="260" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
+                        <text x="305" y="165" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">v</tspan></text>
+                        <line x1="278" y1="175" x2="332" y2="175" stroke="#2d2a3e" stroke-width="0.8"/>
+                        <text x="305" y="186" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">v</tspan></text>
+                        <line x1="350" y1="170" x2="380" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <rect x="380" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
+                        <text x="425" y="165" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">s ext</tspan></text>
+                        <line x1="398" y1="175" x2="452" y2="175" stroke="#2d2a3e" stroke-width="0.8"/>
+                        <text x="425" y="186" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">v</tspan></text>
+                        <line x1="470" y1="170" x2="510" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <line x1="510" y1="60" x2="510" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <line x1="510" y1="115" x2="550" y2="115" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <text x="575" y="120" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">ext</tspan></text>
+                        <text x="310" y="230" text-anchor="middle" font-size="20" fill="#2d2a3e">∼</text>
+                        <text x="165" y="280" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">int</tspan></text>
+                        <line x1="193" y1="275" x2="255" y2="275" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <rect x="255" y="255" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
+                        <text x="300" y="280" text-anchor="middle" font-size="13" font-family="Inter, sans-serif" fill="#2d2a3e" font-weight="600">R<tspan font-size="9" dy="3">eq</tspan></text>
+                        <line x1="345" y1="275" x2="410" y2="275" stroke="#2d2a3e" stroke-width="1.8"/>
+                        <text x="445" y="280" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">ext</tspan></text>
+                    </svg>
+                </div>
+
+                <div class="formula-box key-formula">
+                    <p class="formula-title">Résistance équivalente</p>
+                    $$R_{\text{eq}} = \left(\frac{S_m}{R_{s\,\text{int}} + R_m + R_{s\,\text{ext}}} + \frac{S_v}{R_{s\,\text{int}} + R_v + R_{s\,\text{ext}}}\right)^{-1} = 5{,}6 \times 10^{-3}\;\text{K·W}^{-1}$$
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 03. MODÈLE SIMPLE ==================== -->
+        <section class="section-wrapper warm-bg">
+            <div class="block">
+                <div class="section-number">03</div>
+                <h2>1<sup>er</sup> Modèle — Version simple</h2>
+
+                <div class="model-intro">
+                    <p class="text"><strong>Principe :</strong> On considère simplement que les radiateurs sont éteints durant 6 h la nuit, sans prendre en considération la baisse de température qui en découle.</p>
+                </div>
+
+                <div class="formula-box">
+                    <p class="formula-title">Puissance de fuite</p>
+                    $$P_{\text{int}\to\text{ext}} = \frac{T_{\text{int}} - T_{\text{ext}}}{R_{\text{eq}}} = \frac{16 - 2}{5{,}6 \times 10^{-3}} = 2{,}5 \times 10^{3}\;\text{W}$$
+                </div>
+
+                <p class="text">Pour maintenir la température constante, le radiateur compense exactement les pertes : $P_{r\to\text{int}} = P_{\text{int}\to\text{ext}}$.</p>
+
+                <div class="note-box">
+                    <strong>🔍 Vérification :</strong> $T_r = \dfrac{P_{r\to\text{int}}}{h_r\,S_r} + T_{\text{int}} = 36{,}8\;°\text{C}$ avec $h_r = 30\;\text{W·m}^{-2}\text{·K}^{-1}$ (cf. DS7) et $S_r = 4\;\text{m}^2$. Cohérent avec un radiateur basse température.
+                </div>
+
+                <h3>Économie par salle</h3>
+                <div class="formula-box key-formula">
+                    <p class="formula-title">Énergie économisée par salle / nuit</p>
+                    $$E_{\text{salle}} = P \times 6\;\text{h} = 2{,}5 \times 10^3 \times 21\,600 = 5{,}4 \times 10^{7}\;\text{J}$$
+                </div>
+
+                <h3>Extrapolation à l'ENISE</h3>
+                <p class="text">On estime environ 100 salles de cours + l'équivalent de 30 salles supplémentaires (couloirs, sanitaires, bibliothèque…) → <strong>130 salles</strong>.</p>
+
+                <div class="formula-box">
+                    <p class="formula-title">Énergie totale / nuit</p>
+                    $$E_{\text{ENISE}} = 130 \times 5{,}4 \times 10^{7} = 7 \times 10^{9}\;\text{J} = \frac{7 \times 10^9}{3{,}6 \times 10^6} \approx 2\,000\;\text{kWh}$$
+                </div>
+
+                <div class="result-box big-result">
+                    <p class="result-label">💰 Économie par nuit (modèle simple)</p>
+                    <p class="result-big">2 000 kWh × 0,16 €/kWh = <strong>320 € par nuit</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 04. MODÈLE DYNAMIQUE ==================== -->
+        <section class="section-wrapper dark-section">
+            <div class="block">
+                <div class="section-number light-number">04</div>
+                <h2>2<sup>e</sup> Modèle — « Faut-il chauffer plus fort ? »</h2>
+
+                <div class="model-intro dark-intro">
+                    <p class="text"><strong>Problématique :</strong> En éteignant le chauffage, la température diminue. Faut-il surchauffer le matin pour compenser ? Si oui, le gain calculé précédemment devrait être revu à la baisse.</p>
+                </div>
+
+                <h3>Chronologie</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content"><strong>$t_0 = 0\;\text{h}$</strong> (20 h) — On coupe le chauffage</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content"><strong>$t_1 = 6\;\text{h}$</strong> (2 h du matin) — On rallume le chauffage</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content"><strong>$t_2 = 11\;\text{h}$</strong> (7 h du matin) — Ouverture de l'ENISE</div>
+                    </div>
+                </div>
+
+                <h3>Capacité thermique du système</h3>
+
+                <div class="formula-box dark-box">
+                    <p class="formula-title">Air</p>
+                    $$C_{\text{air}} = \rho_{\text{air}}\, c_{\text{air}}\, V = 1 \times 1000 \times 280 = 2{,}8 \times 10^{5}\;\text{J·K}^{-1}$$
+                    <p class="formula-note">$\rho_{\text{air}} = 1\;\text{kg·m}^{-3}$, $c_{\text{air}} = 1000\;\text{J·kg}^{-1}\text{·K}^{-1}$, $V = 280\;\text{m}^3$</p>
+                </div>
+
+                <div class="formula-box dark-box">
+                    <p class="formula-title">Béton</p>
+                    <p class="formula-note" style="margin-bottom:10px;">
+                        Dulong-Petit : $C_{\text{mol}} \approx 3R = 25\;\text{J·mol}^{-1}\text{·K}^{-1}$. Béton ≈ SiO₂ → $M = 60\;\text{g·mol}^{-1}$ → $c_{\text{béton}} \approx 400\;\text{J·kg}^{-1}\text{·K}^{-1}$.<br>
+                        $\rho_{\text{béton}} \approx 3000\;\text{kg·m}^{-3}$. Surface participante ≈ 220 m² sur 10 cm → $V_{\text{béton}} \approx 22\;\text{m}^3$.
                     </p>
-                    <div class="formula-box">
-                        <p class="formula-title">Coefficients</p>
-                        $$h_{\text{int}} = 10\;\text{W·m}^{-2}\text{·K}^{-1}$$
-                        $$h_{\text{ext}} = 20\;\text{W·m}^{-2}\text{·K}^{-1}$$
-                        <p class="formula-source">📖 Chap. 11, TD</p>
-                    </div>
-                    <div class="formula-box">
-                        <p class="formula-title">Résistances surfaciques</p>
-                        $$R_{s\,\text{int}} = \frac{1}{h_{\text{int}}} \qquad R_{s\,\text{ext}} = \frac{1}{h_{\text{ext}}}$$
-                    </div>
+                    $$C_{\text{béton}} = 3000 \times 400 \times 22 = 2{,}6 \times 10^{7}\;\text{J·K}^{-1}$$
                 </div>
-            </div>
 
-            <h3>Schéma du circuit thermique</h3>
-            <p class="text">
-                La face extérieure se modélise comme <strong>deux branches en parallèle</strong> (béton et vitrage). Chaque branche est une mise en série de trois résistances : échange intérieur, conduction, échange extérieur, le tout divisé par la surface correspondante.
-            </p>
+                <div class="formula-box key-formula dark-box">
+                    <p class="formula-title">Capacité thermique totale</p>
+                    $$C_m = C_{\text{air}} + C_{\text{béton}} \approx C_{\text{béton}} \approx 2{,}6 \times 10^{7}\;\text{J·K}^{-1}$$
+                </div>
 
-            <!-- SCHÉMA SVG — ton schéma exact -->
-            <div class="schema-container">
-                <svg viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg" class="circuit-svg">
+                <!-- Phase 1 -->
+                <div class="phase-header">
+                    <div class="phase-badge">Phase 1</div>
+                    <h3>Refroidissement libre — $t_0 \to t_1$</h3>
+                </div>
 
-                    <!-- === BRANCHE HAUT (béton) === -->
-                    <!-- Tint -->
-                    <text x="42" y="120" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">int</tspan></text>
+                <div class="formula-box dark-box">
+                    <p class="formula-title">Premier principe (chauffage coupé)</p>
+                    $$C_m \frac{dT}{dt} = -\frac{T - T_{\text{ext}}}{R_{\text{eq}}} \quad \Longrightarrow \quad \frac{dT}{dt} + \frac{1}{C_m R_{\text{eq}}}\,T = \frac{T_{\text{ext}}}{C_m R_{\text{eq}}}$$
+                </div>
 
-                    <!-- Ligne Tint → fork -->
-                    <line x1="70" y1="115" x2="110" y2="115" stroke="#2d2a3e" stroke-width="1.8"/>
+                <div class="formula-box key-formula dark-box">
+                    <p class="formula-title">Solution — $T(0) = T_{\text{int}}$</p>
+                    $$\boxed{T(t) = (T_{\text{int}} - T_{\text{ext}})\, e^{-t/(C_m R_{\text{eq}})} + T_{\text{ext}}}$$
+                </div>
 
-                    <!-- Fork -->
-                    <line x1="110" y1="115" x2="110" y2="60" stroke="#2d2a3e" stroke-width="1.8"/>
-                    <line x1="110" y1="115" x2="110" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
+                <div class="result-box dark-result">
+                    <p class="result-label">Température à t₁ = 6 h</p>
+                    $$T(t_1) \approx 14{,}1\;°\text{C}$$
+                    <p class="result-comment">Chute d'environ <strong>2 °C</strong> en 6 heures.</p>
+                </div>
 
-                    <!-- Branche béton -->
-                    <line x1="110" y1="60" x2="140" y2="60" stroke="#2d2a3e" stroke-width="1.8"/>
+                <!-- Phase 2 -->
+                <div class="phase-header">
+                    <div class="phase-badge">Phase 2</div>
+                    <h3>Réchauffage — $t_1 \to t_2$</h3>
+                </div>
 
-                    <!-- Rs int / Sm -->
-                    <rect x="140" y="40" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                    <text x="185" y="55" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">s int</tspan></text>
-                    <line x1="158" y1="65" x2="212" y2="65" stroke="#2d2a3e" stroke-width="0.8"/>
-                    <text x="185" y="76" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">m</tspan></text>
+                <div class="formula-box dark-box">
+                    <p class="formula-title">Premier principe (chauffage rallumé à $P_r$)</p>
+                    $$C_m \frac{dT}{dt} = P_{r} - \frac{T - T_{\text{ext}}}{R_{\text{eq}}} \quad \Longrightarrow \quad T(t) = A\, e^{-t/(C_m R_{\text{eq}})} + T_{\text{ext}} + P_r R_{\text{eq}}$$
+                </div>
 
-                    <line x1="230" y1="60" x2="260" y2="60" stroke="#2d2a3e" stroke-width="1.8"/>
+                <div class="formula-box key-formula dark-box">
+                    <p class="formula-title">Solution — condition initiale $T(t_1)$</p>
+                    $$\boxed{T(t) = \Big(T(t_1) - T_{\text{ext}} - P_r R_{\text{eq}}\Big)\, \exp\!\left(\frac{t_1 - t}{C_m R_{\text{eq}}}\right) + T_{\text{ext}} + P_r R_{\text{eq}}}$$
+                </div>
 
-                    <!-- Rm / Sm -->
-                    <rect x="260" y="40" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                    <text x="305" y="55" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">m</tspan></text>
-                    <line x1="278" y1="65" x2="332" y2="65" stroke="#2d2a3e" stroke-width="0.8"/>
-                    <text x="305" y="76" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">m</tspan></text>
-
-                    <line x1="350" y1="60" x2="380" y2="60" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                    <!-- Rs ext / Sm -->
-                    <rect x="380" y="40" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                    <text x="425" y="55" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">s ext</tspan></text>
-                    <line x1="398" y1="65" x2="452" y2="65" stroke="#2d2a3e" stroke-width="0.8"/>
-                    <text x="425" y="76" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">m</tspan></text>
-
-                    <line x1="470" y1="60" x2="510" y2="60" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                    <!-- === BRANCHE BAS (vitrage) === -->
-                    <line x1="110" y1="170" x2="140" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                    <!-- Rs int / Sv -->
-                    <rect x="140" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                    <text x="185" y="165" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">s int</tspan></text>
-                    <line x1="158" y1="175" x2="212" y2="175" stroke="#2d2a3e" stroke-width="0.8"/>
-                    <text x="185" y="186" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">v</tspan></text>
-
-                    <line x1="230" y1="170" x2="260" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                    <!-- Rv / Sv -->
-                    <rect x="260" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                    <text x="305" y="165" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">v</tspan></text>
-                    <line x1="278" y1="175" x2="332" y2="175" stroke="#2d2a3e" stroke-width="0.8"/>
-                    <text x="305" y="186" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">v</tspan></text>
-
-                    <line x1="350" y1="170" x2="380" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                    <!-- Rs ext / Sv -->
-                    <rect x="380" y="150" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                    <text x="425" y="165" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="3">s ext</tspan></text>
-                    <line x1="398" y1="175" x2="452" y2="175" stroke="#2d2a3e" stroke-width="0.8"/>
-                    <text x="425" y="186" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="3">v</tspan></text>
-
-                    <line x1="470" y1="170" x2="510" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                    <!-- Rejoin -->
-                    <line x1="510" y1="60" x2="510" y2="170" stroke="#2d2a3e" stroke-width="1.8"/>
-                    <line x1="510" y1="115" x2="550" y2="115" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                    <!-- Text -->
-                    <text x="575" y="120" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">ext</tspan></text>
-
-                    <!-- ===== EQUIVALENT EN BAS ===== -->
-                    <text x="310" y="230" text-anchor="middle" font-size="20" fill="#2d2a3e">∼</text>
-
-                    <!-- Tint eq -->
-                    <text x="165" y="280" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">int</tspan></text>
-                    <line x1="193" y1="275" x2="255" y2="275" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                    <!-- Req -->
-                    <rect x="255" y="255" width="90" height="40" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                    <text x="300" y="280" text-anchor="middle" font-size="13" font-family="Inter, sans-serif" fill="#2d2a3e" font-weight="600">R<tspan font-size="9" dy="3">eq</tspan></text>
-
-                    <line x1="345" y1="275" x2="410" y2="275" stroke="#2d2a3e" stroke-width="1.8"/>
-                    <!-- Text eq -->
-                    <text x="445" y="280" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">ext</tspan></text>
-
-                </svg>
-            </div>
-
-            <div class="formula-box key-formula">
-                <p class="formula-title">Résistance équivalente</p>
-                $$R_{\text{eq}} = \left(\frac{S_m}{R_{s\,\text{int}} + R_m + R_{s\,\text{ext}}} + \frac{S_v}{R_{s\,\text{int}} + R_v + R_{s\,\text{ext}}}\right)^{-1} = 5{,}6 \times 10^{-3}\;\text{K·W}^{-1}$$
-            </div>
-
-        </section>
-
-        <!-- ==================== 3. MODÈLE SIMPLE ==================== -->
-        <section class="block accent-section">
-            <div class="section-number">03</div>
-            <h2>1<sup>er</sup> Modèle — Version simple</h2>
-
-            <div class="model-intro">
-                <p class="text">
-                    <strong>Principe :</strong> On considère simplement que les radiateurs sont éteints durant 6 h la nuit, sans prendre en considération la baisse de température qui en découle.
+                <p class="text light-text">
+                    Avec la puissance standard $P_r = P_{\text{int}\to\text{ext}} = 2{,}5 \times 10^3\;\text{W}$ :
                 </p>
-            </div>
+                <div class="result-box dark-result">
+                    <p class="result-label">Température à t₂ = 11 h (puissance standard)</p>
+                    $$T(t_2) \approx 14{,}3\;°\text{C}$$
+                    <p class="result-comment">La salle n'a pas retrouvé ses 16 °C.</p>
+                </div>
 
-            <div class="formula-box">
-                <p class="formula-title">Puissance de fuite vers l'extérieur</p>
-                $$P_{\text{int}\to\text{ext}} = \frac{T_{\text{int}} - T_{\text{ext}}}{R_{\text{eq}}} = \frac{16 - 2}{5{,}6 \times 10^{-3}} = 2{,}5 \times 10^{3}\;\text{W}$$
-            </div>
-
-            <p class="text">
-                Pour maintenir une température constante dans la salle, le radiateur doit compenser exactement les pertes : $P_{r\to\text{int}} = P_{\text{int}\to\text{ext}}$.
-            </p>
-
-            <div class="note-box">
-                <strong>🔍 Vérification :</strong> La température de surface du radiateur serait
-                $T_r = \dfrac{P_{r\to\text{int}}}{h_r\,S_r} + T_{\text{int}} = 36{,}8\;°\text{C}$
-                avec $h_r = 30\;\text{W·m}^{-2}\text{·K}^{-1}$ <span class="source-tag">DS7</span> et $S_r = 4\;\text{m}^2$ de radiateur.
-                C'est cohérent avec un radiateur basse température.
-            </div>
-
-            <h3>Économie par salle</h3>
-            <div class="formula-box key-formula">
-                <p class="formula-title">Énergie économisée par salle et par nuit</p>
-                $$E_{\text{salle}} = P \times 6\;\text{h} = 2{,}5 \times 10^3 \times 21\,600 = 5{,}4 \times 10^{7}\;\text{J}$$
-            </div>
-
-            <h3>Extrapolation à l'ENISE</h3>
-            <p class="text">
-                On estime environ <strong>100 salles de cours</strong> dans l'ENISE, plus l'équivalent de <strong>30 salles</strong> pour les couloirs, toilettes, bibliothèque, etc. Soit <strong>130 salles</strong> au total.
-            </p>
-
-            <div class="formula-box">
-                <p class="formula-title">Énergie totale par nuit</p>
-                $$E_{\text{ENISE}} = 130 \times 5{,}4 \times 10^{7} = 7 \times 10^{9}\;\text{J} = \frac{7 \times 10^9}{3{,}6 \times 10^6} \approx 2\,000\;\text{kWh}$$
-            </div>
-
-            <div class="result-box final">
-                <p class="result-label">💰 Économie financière par nuit</p>
-                <p class="result-big">
-                    2 000 kWh × 0,16 €/kWh = <strong>320 € par nuit</strong>
+                <h3>Combien faut-il chauffer pour retrouver 16 °C ?</h3>
+                <p class="text light-text">
+                    Pour obtenir $T(t_2) \approx 16\;°\text{C}$, il faut une puissance $P_r \approx 5 \times 10^3\;\text{W}$. On vérifie :
                 </p>
-                <p class="result-comment">
-                    Soit environ <strong>57 600 €</strong> sur une saison de chauffe de 180 nuits (octobre → avril).
+                <div class="result-box dark-result">
+                    <p class="result-label">Avec $P_r = 5 \times 10^3$ W</p>
+                    $$T(t_2) \approx 15{,}9\;°\text{C} \approx T_{\text{int}}$$
+                </div>
+
+                <h3>Surcoût de la surchauffe matinale</h3>
+                <p class="text light-text">
+                    La différence de puissance par rapport au régime normal est $\Delta P_r = 5\times10^3 - 2{,}5\times10^3 = 2{,}5 \times 10^{3}\;\text{W}$, fournie pendant les 5 h de réchauffage ($t_1 \to t_2$).
                 </p>
+
+                <div class="formula-box dark-box">
+                    <p class="formula-title">Énergie supplémentaire par salle</p>
+                    $$E_{\text{sup}} = \Delta P_r \times 5\;\text{h} = 2{,}5\times10^3 \times 18\,000 = 4{,}5 \times 10^{7}\;\text{J} = 12{,}5\;\text{kWh}$$
+                </div>
+
+                <div class="formula-box dark-box">
+                    <p class="formula-title">À l'échelle de l'ENISE</p>
+                    $$E_{\text{sup, ENISE}} = 12{,}5 \times 130 = 1\,625\;\text{kWh}$$
+                    $$\text{Surcoût} = 1\,625 \times 0{,}16 = 260\;\text{€}$$
+                </div>
+
+                <div class="conclusion-banner">
+                    <p class="conclusion-calc">Économie réelle = 320 € − 260 € = <strong>60 € par nuit</strong></p>
+                    <p class="conclusion-sub">si l'on souhaite retrouver exactement 16 °C à l'arrivée des étudiants.</p>
+                </div>
             </div>
         </section>
 
-        <!-- ==================== 4. MODÈLE DYNAMIQUE ==================== -->
-        <section class="block">
-            <div class="section-number">04</div>
-            <h2>2<sup>e</sup> Modèle — « Faut-il chauffer plus fort ? »</h2>
-
-            <div class="model-intro">
-                <p class="text">
-                    <strong>Problématique :</strong> En éteignant le chauffage, la température diminue au cours de la nuit. Faut-il surchauffer le matin pour compenser ? Si oui, le gain énergétique et monétaire calculé précédemment devrait être revu à la baisse.
-                </p>
-            </div>
-
-            <h3>Chronologie</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <strong>$t_0 = 0\;\text{h}$</strong> (20 h) — On coupe le chauffage
-                    </div>
+        <!-- ==================== 05. MODÈLE 3 ==================== -->
+        <section class="section-wrapper">
+            <div class="block">
+                <div class="section-number">05</div>
+                <h2>3<sup>e</sup> Modèle — Situation de gain optimal</h2>
+                <div class="model-intro">
+                    <p class="text"><strong>Objectif :</strong> S'éloigner de la consigne des 6 h pour déterminer la <strong>durée d'arrêt optimale</strong> du chauffage qui maximise le gain énergétique et financier.</p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <strong>$t_1 = 6\;\text{h}$</strong> (2 h du matin) — On rallume le chauffage
-                    </div>
+                <div class="coming-soon">
+                    <p>🔬 Modélisation en cours…</p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <strong>$t_2 = 11\;\text{h}$</strong> (7 h du matin) — Ouverture de l'ENISE
-                    </div>
-                </div>
-            </div>
-
-            <h3>Capacité thermique du système</h3>
-            <p class="text">
-                Il faut considérer l'inertie thermique de l'air <em>et</em> du béton environnant.
-            </p>
-
-            <div class="formula-box">
-                <p class="formula-title">Air</p>
-                $$C_{\text{air}} = \rho_{\text{air}}\, c_{\text{air}}\, V = 1 \times 1000 \times 280 = 2{,}8 \times 10^{5}\;\text{J·K}^{-1}$$
-                <p class="formula-note">$\rho_{\text{air}} = 1\;\text{kg·m}^{-3}$, $c_{\text{air}} = 1000\;\text{J·kg}^{-1}\text{·K}^{-1}$, $V = 80 \times 3{,}5 = 280\;\text{m}^3$</p>
-            </div>
-
-            <div class="formula-box">
-                <p class="formula-title">Béton</p>
-                <p class="formula-note" style="margin-bottom:10px;">
-                    Loi de Dulong-Petit : $C_{\text{molaire}} \approx 3R = 25\;\text{J·mol}^{-1}\text{·K}^{-1}$.<br>
-                    Béton ≈ SiO₂ → $M = 60\;\text{g·mol}^{-1}$ → $c_{\text{béton}} \approx 400\;\text{J·kg}^{-1}\text{·K}^{-1}$.<br>
-                    $\rho_{\text{béton}} \approx 3000\;\text{kg·m}^{-3}$ (≈ 3× celle de l'eau).<br>
-                    Surface participante : $S \approx 2 \times 80 + 2 \times 9 \times 3{,}5 \approx 220\;\text{m}^2$ sur 10 cm → $V_{\text{béton}} \approx 22\;\text{m}^3$.
-                </p>
-                $$C_{\text{béton}} = 3000 \times 400 \times 22 = 2{,}6 \times 10^{7}\;\text{J·K}^{-1}$$
-            </div>
-
-            <div class="formula-box key-formula">
-                <p class="formula-title">Capacité thermique totale</p>
-                $$C_m = C_{\text{air}} + C_{\text{béton}} \approx C_{\text{béton}} \approx 2{,}6 \times 10^{7}\;\text{J·K}^{-1}$$
-                <p class="formula-note">L'inertie est totalement dominée par le béton.</p>
-            </div>
-
-            <!-- Phase 1 -->
-            <div class="phase-header">
-                <div class="phase-badge">Phase 1</div>
-                <h3>Refroidissement libre — $t_0 \to t_1$</h3>
-            </div>
-            <p class="text">Le chauffage est coupé. Le premier principe donne :</p>
-
-            <div class="formula-box">
-                <p class="formula-title">Équation différentielle</p>
-                $$C_m \frac{dT}{dt} = P_{\text{reçue}} - P_{\text{émise}} = 0 - \frac{T - T_{\text{ext}}}{R_{\text{eq}}}$$
-                $$\Longrightarrow \quad \frac{dT}{dt} + \frac{1}{C_m R_{\text{eq}}}\,T = \frac{T_{\text{ext}}}{C_m R_{\text{eq}}}$$
-            </div>
-
-            <div class="formula-box key-formula">
-                <p class="formula-title">Solution — condition initiale $T(0) = T_{\text{int}}$</p>
-                $$\boxed{T(t) = (T_{\text{int}} - T_{\text{ext}})\, e^{-t/(C_m R_{\text{eq}})} + T_{\text{ext}}}$$
-            </div>
-
-            <div class="result-box">
-                <p class="result-label">Température à t₁ = 6 h</p>
-                $$T(t_1) = (16 - 2)\, e^{-21600/(2{,}6 \times 10^7 \times 5{,}6 \times 10^{-3})} + 2 \approx 15\;°\text{C}$$
-                <p class="result-comment">Chute d'environ <strong>1 °C</strong> seulement en 6 heures.</p>
-            </div>
-
-            <!-- Phase 2 -->
-            <div class="phase-header">
-                <div class="phase-badge">Phase 2</div>
-                <h3>Réchauffage — $t_1 \to t_2$</h3>
-            </div>
-            <p class="text">Le chauffage est rallumé à puissance normale $P_r$ :</p>
-
-            <div class="formula-box">
-                <p class="formula-title">Équation différentielle avec chauffage</p>
-                $$C_m \frac{dT}{dt} = P_{r\to\text{int}} - \frac{T - T_{\text{ext}}}{R_{\text{eq}}}$$
-                $$\Longrightarrow \quad T(t) = A\, e^{-t/(C_m R_{\text{eq}})} + T_{\text{ext}} + P_r R_{\text{eq}}$$
-            </div>
-
-            <div class="formula-box key-formula">
-                <p class="formula-title">Solution — condition initiale $T(t_1)$</p>
-                $$\boxed{T(t) = \Big(T(t_1) - T_{\text{ext}} - P_r R_{\text{eq}}\Big)\, \exp\!\left(\frac{t_1 - t}{C_m R_{\text{eq}}}\right) + T_{\text{ext}} + P_r R_{\text{eq}}}$$
-            </div>
-
-            <div class="result-box">
-                <p class="result-label">Température à t₂ = 11 h (ouverture)</p>
-                $$T(t_2) \approx 15{,}9\;°\text{C} \approx T_{\text{int}}$$
-                <p class="result-comment">Le radiateur standard suffit. <strong>Pas besoin de surchauffer.</strong></p>
-            </div>
-
-            <div class="conclusion-banner">
-                <p>✅ L'économie du modèle simple est <strong>totale</strong> : aucune surconsommation compensatoire n'est nécessaire le matin.</p>
             </div>
         </section>
 
-        <!-- ==================== 5. MODÈLE 3 (placeholder) ==================== -->
-        <section class="block">
-            <div class="section-number">05</div>
-            <h2>3<sup>e</sup> Modèle — Situation de gain optimal</h2>
-            <div class="model-intro">
-                <p class="text">
-                    <strong>Objectif :</strong> S'éloigner de la consigne des 6 h pour déterminer la <strong>durée d'arrêt optimale</strong> du chauffage qui maximise le gain énergétique et financier.
+        <!-- ==================== 06. CONCLUSION ==================== -->
+        <section class="section-wrapper conclusion-wrapper">
+            <div class="block">
+                <div class="section-number light-number">06</div>
+                <h2>Conclusion & Bilan</h2>
+                <p class="text light-text">
+                    En coupant le chauffage 6 h chaque nuit, la température d'une salle chute d'environ <strong>2 °C</strong>. Pour retrouver 16 °C à 7 h, il faut doubler la puissance du radiateur pendant 5 h — ce qui réduit significativement l'économie brute.
                 </p>
-            </div>
-            <div class="coming-soon">
-                <p>🔬 Modélisation en cours...</p>
-            </div>
-        </section>
 
-        <!-- ==================== 6. CONCLUSION ==================== -->
-        <section class="block end conclusion-section">
-            <div class="section-number">06</div>
-            <h2>Conclusion & Bilan</h2>
-            <p class="text">
-                Grâce à l'énorme inertie thermique du béton, la température d'une salle ne chute que d'environ <strong>1 °C</strong> en 6 heures de coupure nocturne. Le chauffage standard suffit à ramener la température de consigne avant 7 h.
-            </p>
+                <div class="final-recap">
+                    <div class="recap-item">
+                        <div class="recap-value">320 €</div>
+                        <div class="recap-label">économie brute / nuit</div>
+                    </div>
+                    <div class="recap-item">
+                        <div class="recap-value">− 260 €</div>
+                        <div class="recap-label">surcoût surchauffe</div>
+                    </div>
+                    <div class="recap-item highlight-recap">
+                        <div class="recap-value">60 €</div>
+                        <div class="recap-label">économie nette / nuit</div>
+                    </div>
+                </div>
 
-            <div class="final-recap">
-                <div class="recap-item">
-                    <div class="recap-value">2 000 kWh</div>
-                    <div class="recap-label">économisés par nuit</div>
-                </div>
-                <div class="recap-item highlight-recap">
-                    <div class="recap-value">320 €</div>
-                    <div class="recap-label">économisés par nuit</div>
-                </div>
-                <div class="recap-item">
-                    <div class="recap-value">~58 000 €</div>
-                    <div class="recap-label">par saison de chauffe</div>
-                </div>
-            </div>
+                <p class="text light-text" style="margin-top:28px;">
+                    Sur une saison de chauffe d'environ <strong>180 nuits</strong>, cela représente tout de même environ <strong>10 800 €</strong> d'économies par an — et ce chiffre pourrait augmenter avec une optimisation de la durée de coupure (modèle 3).
+                </p>
 
-            <div class="note-box" style="margin-top:32px;">
-                <strong>Limites du modèle :</strong> Température extérieure supposée constante à 2 °C, étanchéité parfaite (pas d'infiltrations d'air), matériaux homogènes. Un modèle plus fin prendrait en compte la variation nocturne de T<sub>ext</sub>, la ventilation et l'hétérogénéité du bâti.
+                <div class="note-box dark-note">
+                    <strong>Limites du modèle :</strong> Température extérieure supposée constante à 2 °C, étanchéité parfaite, matériaux homogènes. Un modèle plus fin prendrait en compte la variation nocturne de T<sub>ext</sub>, la ventilation et l'hétérogénéité du bâti.
+                </div>
             </div>
         </section>
 
