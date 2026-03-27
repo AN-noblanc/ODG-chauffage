@@ -291,7 +291,7 @@
                 </div>
 
                 <h3>Capacité thermique du système</h3>
-                <p class="text">Il faut considérer l'inertie thermique de l'air <em>et</em> du béton environnant.</p>
+                <p class="text">Il faut considérer l'inertie thermique de l'air <em>et</em> du béton environnant. Notre système considéré est l'ensemble de l'air dans la salle et une partie des murs de béton.</p>
 
                 <div class="formula-box">
                     <p class="formula-title">Capacité thermique de l'air</p>
@@ -307,19 +307,12 @@
                     </p>
 
                     <p class="text" style="margin-bottom:8px; max-width:none;">
-                        <strong>Capacité thermique massique :</strong> Pour un solide, la capacité thermique molaire est $C_{\text{molaire}} \approx 3R = 25\;\text{J·mol}^{-1}\text{·K}^{-1}$. En estimant que le béton est principalement constitué de SiO₂,
-                        on obtient une masse molaire :
+                        <strong>Capacité thermique massique :</strong> Pour un solide et en considérant que le béton est constitué de SiO₂,
                     </p>
-                    $$M_{\text{béton}} = 2 \times 16 + 28 = 60\;\text{g·mol}^{-1}$$
-                    <p class="text" style="margin-bottom:8px; max-width:none;">
-                        D'où la capacité thermique massique :
-                    </p>
+                    
+                    
                     $$c_{\text{béton}} = \frac{C_{\text{molaire}}}{M_{\text{béton}}} = \frac{25}{60 \times 10^{-3}} \approx 400\;\text{J·kg}^{-1}\text{·K}^{-1}$$
 
-                    <p class="text" style="margin-bottom:8px; max-width:none;">
-                        <strong>Masse volumique :</strong> On estime que la masse volumique du béton est environ 3 fois supérieure à celle de l'eau :
-                    </p>
-                    $$\rho_{\text{béton}} \approx 3\,000\;\text{kg·m}^{-3}$$
 
                     <p class="text" style="margin-bottom:8px; max-width:none;">
                         <strong>Volume participant :</strong> On considère que le sol, le plafond et les murs (on n'en compte que 2 sur 3 pour ne pas compter deux fois le même mur entre salles adjacentes) sont faits de béton :
@@ -334,12 +327,18 @@
                         <strong>Résultat :</strong>
                     </p>
                     $$C_{\text{béton}} = \rho_{\text{béton}} \times c_{\text{béton}} \times V_{\text{béton}} = 3\,000 \times 400 \times 22 = 2{,}6 \times 10^{7}\;\text{J·K}^{-1}$$
+                    <p class="formula-note">$\rho_{\text{air}} = 1\;\text{kg·m}^{-3}$</p>
                 </div>
 
                 <div class="formula-box key-formula">
                     <p class="formula-title">Capacité thermique totale</p>
                     $$C_m = C_{\text{air}} + C_{\text{béton}} \approx C_{\text{béton}} \approx 2{,}6 \times 10^{7}\;\text{J·K}^{-1}$$
                     <p class="formula-note">L'inertie thermique est totalement dominée par le béton.</p>
+                </div>
+
+                <div class="formula-box">
+                    <p class="formula-title">Commentaire</p>
+                    <p class="text">L'épaisseur participante nous sert à prendre en compte le fait qu'on ne s'intéresse pas à la température des murs sur l'entièreté de leur épaisseur, s'étendant de la surface intérieure à la surface extérieure, cette dernière ne nous étant pas pertinente ici.</p>
                 </div>
 
                 <!-- Phase 1 -->
