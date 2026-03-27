@@ -22,6 +22,7 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
 </head>
 
 <body>
@@ -47,7 +48,8 @@
             <div class="block">
                 <div class="section-number">01</div>
                 <h2>Caractéristiques de la salle étudiée</h2>
-                <p class="text">On modélise une salle de cours typique de l'ENISE comme un système thermodynamique fermé.</p>
+                <p class="text">On modélise une salle de cours typique de l'ENISE comme un système thermodynamique fermé.
+                </p>
 
                 <div class="cards-row">
                     <div class="info-card">
@@ -63,7 +65,8 @@
                     <div class="info-card">
                         <div class="info-card-icon">🌡️</div>
                         <div class="info-card-value">16 °C</div>
-                        <div class="info-card-label">T<sub>int</sub> température souhaitée durant l'ouverture de l'ENISE</div>
+                        <div class="info-card-label">T<sub>int</sub> température souhaitée durant l'ouverture de l'ENISE
+                        </div>
                     </div>
                     <div class="info-card">
                         <div class="info-card-icon">❄️</div>
@@ -124,93 +127,78 @@
                 <h3>Schéma du circuit thermique</h3>
                 <p class="text">Deux branches en parallèle (béton / vitrage), chacune composée de trois résistances en série divisées par la surface correspondante :</p>
 
-                <!-- SCHÉMA SVG -->
                 <div class="schema-container">
                     <svg viewBox="0 0 660 370" xmlns="http://www.w3.org/2000/svg" class="circuit-svg">
-
-                        <!-- Tint -->
-                        <text x="42" y="128" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">int</tspan></text>
-
-                        <!-- Ligne Tint → fork -->
-                        <line x1="70" y1="123" x2="110" y2="123" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- Fork -->
-                        <line x1="110" y1="123" x2="110" y2="65" stroke="#2d2a3e" stroke-width="1.8"/>
-                        <line x1="110" y1="123" x2="110" y2="181" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- ===== BRANCHE BÉTON (haut) ===== -->
-                        <line x1="110" y1="65" x2="140" y2="65" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- Rs int / Sm -->
-                        <rect x="140" y="42" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                        <text x="185" y="59" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="2">s int</tspan></text>
-                        <line x1="155" y1="65" x2="215" y2="65" stroke="#2d2a3e" stroke-width="0.8"/>
-                        <text x="185" y="80" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="2">m</tspan></text>
-
-                        <line x1="230" y1="65" x2="260" y2="65" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- Rm / Sm -->
-                        <rect x="260" y="42" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                        <text x="305" y="59" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="2">m</tspan></text>
-                        <line x1="275" y1="65" x2="335" y2="65" stroke="#2d2a3e" stroke-width="0.8"/>
-                        <text x="305" y="80" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="2">m</tspan></text>
-
-                        <line x1="350" y1="65" x2="380" y2="65" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- Rs ext / Sm -->
-                        <rect x="380" y="42" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                        <text x="425" y="59" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="2">s ext</tspan></text>
-                        <line x1="395" y1="65" x2="455" y2="65" stroke="#2d2a3e" stroke-width="0.8"/>
-                        <text x="425" y="80" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="2">m</tspan></text>
-
-                        <line x1="470" y1="65" x2="510" y2="65" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- ===== BRANCHE VITRAGE (bas) ===== -->
-                        <line x1="110" y1="181" x2="140" y2="181" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- Rs int / Sv -->
-                        <rect x="140" y="158" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                        <text x="185" y="175" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="2">s int</tspan></text>
-                        <line x1="155" y1="181" x2="215" y2="181" stroke="#2d2a3e" stroke-width="0.8"/>
-                        <text x="185" y="196" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="2">v</tspan></text>
-
-                        <line x1="230" y1="181" x2="260" y2="181" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- Rv / Sv -->
-                        <rect x="260" y="158" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                        <text x="305" y="175" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="2">v</tspan></text>
-                        <line x1="275" y1="181" x2="335" y2="181" stroke="#2d2a3e" stroke-width="0.8"/>
-                        <text x="305" y="196" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="2">v</tspan></text>
-
-                        <line x1="350" y1="181" x2="380" y2="181" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- Rs ext / Sv -->
-                        <rect x="380" y="158" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                        <text x="425" y="175" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">R<tspan font-size="8" dy="2">s ext</tspan></text>
-                        <line x1="395" y1="181" x2="455" y2="181" stroke="#2d2a3e" stroke-width="0.8"/>
-                        <text x="425" y="196" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" fill="#2d2a3e">S<tspan font-size="8" dy="2">v</tspan></text>
-
-                        <line x1="470" y1="181" x2="510" y2="181" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- Rejoin -->
-                        <line x1="510" y1="65" x2="510" y2="181" stroke="#2d2a3e" stroke-width="1.8"/>
-                        <line x1="510" y1="123" x2="550" y2="123" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <!-- Text -->
-                        <text x="575" y="128" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">ext</tspan></text>
-
-                        <!-- ===== EQUIVALENT ===== -->
+                        <text x="42" y="128" text-anchor="middle" font-size="14" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">T<tspan font-size="10" dy="4">int</tspan></text>
+                        <line x1="70" y1="123" x2="110" y2="123" stroke="#2d2a3e" stroke-width="1.8" />
+                        <line x1="110" y1="123" x2="110" y2="65" stroke="#2d2a3e" stroke-width="1.8" />
+                        <line x1="110" y1="123" x2="110" y2="181" stroke="#2d2a3e" stroke-width="1.8" />
+                        <line x1="110" y1="65" x2="140" y2="65" stroke="#2d2a3e" stroke-width="1.8" />
+                        <rect x="140" y="42" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e"
+                            stroke-width="1.4" />
+                        <text x="185" y="59" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">R<tspan font-size="8" dy="2">s int</tspan></text>
+                        <line x1="155" y1="65" x2="215" y2="65" stroke="#2d2a3e" stroke-width="0.8" />
+                        <text x="185" y="80" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">S<tspan font-size="8" dy="2">m</tspan></text>
+                        <line x1="230" y1="65" x2="260" y2="65" stroke="#2d2a3e" stroke-width="1.8" />
+                        <rect x="260" y="42" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e"
+                            stroke-width="1.4" />
+                        <text x="305" y="59" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">R<tspan font-size="8" dy="2">m</tspan></text>
+                        <line x1="275" y1="65" x2="335" y2="65" stroke="#2d2a3e" stroke-width="0.8" />
+                        <text x="305" y="80" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">S<tspan font-size="8" dy="2">m</tspan></text>
+                        <line x1="350" y1="65" x2="380" y2="65" stroke="#2d2a3e" stroke-width="1.8" />
+                        <rect x="380" y="42" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e"
+                            stroke-width="1.4" />
+                        <text x="425" y="59" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">R<tspan font-size="8" dy="2">s ext</tspan></text>
+                        <line x1="395" y1="65" x2="455" y2="65" stroke="#2d2a3e" stroke-width="0.8" />
+                        <text x="425" y="80" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">S<tspan font-size="8" dy="2">m</tspan></text>
+                        <line x1="470" y1="65" x2="510" y2="65" stroke="#2d2a3e" stroke-width="1.8" />
+                        <line x1="110" y1="181" x2="140" y2="181" stroke="#2d2a3e" stroke-width="1.8" />
+                        <rect x="140" y="158" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e"
+                            stroke-width="1.4" />
+                        <text x="185" y="175" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">R<tspan font-size="8" dy="2">s int</tspan></text>
+                        <line x1="155" y1="181" x2="215" y2="181" stroke="#2d2a3e" stroke-width="0.8" />
+                        <text x="185" y="196" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">S<tspan font-size="8" dy="2">v</tspan></text>
+                        <line x1="230" y1="181" x2="260" y2="181" stroke="#2d2a3e" stroke-width="1.8" />
+                        <rect x="260" y="158" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e"
+                            stroke-width="1.4" />
+                        <text x="305" y="175" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">R<tspan font-size="8" dy="2">v</tspan></text>
+                        <line x1="275" y1="181" x2="335" y2="181" stroke="#2d2a3e" stroke-width="0.8" />
+                        <text x="305" y="196" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">S<tspan font-size="8" dy="2">v</tspan></text>
+                        <line x1="350" y1="181" x2="380" y2="181" stroke="#2d2a3e" stroke-width="1.8" />
+                        <rect x="380" y="158" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e"
+                            stroke-width="1.4" />
+                        <text x="425" y="175" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">R<tspan font-size="8" dy="2">s ext</tspan></text>
+                        <line x1="395" y1="181" x2="455" y2="181" stroke="#2d2a3e" stroke-width="0.8" />
+                        <text x="425" y="196" text-anchor="middle" font-size="11" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">S<tspan font-size="8" dy="2">v</tspan></text>
+                        <line x1="470" y1="181" x2="510" y2="181" stroke="#2d2a3e" stroke-width="1.8" />
+                        <line x1="510" y1="65" x2="510" y2="181" stroke="#2d2a3e" stroke-width="1.8" />
+                        <line x1="510" y1="123" x2="550" y2="123" stroke="#2d2a3e" stroke-width="1.8" />
+                        <text x="575" y="128" text-anchor="middle" font-size="14" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">T<tspan font-size="10" dy="4">ext</tspan></text>
                         <text x="310" y="245" text-anchor="middle" font-size="20" fill="#2d2a3e">∼</text>
-
-                        <text x="165" y="300" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">int</tspan></text>
-                        <line x1="193" y1="295" x2="255" y2="295" stroke="#2d2a3e" stroke-width="1.8"/>
-
-                        <rect x="255" y="272" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e" stroke-width="1.4"/>
-                        <text x="300" y="300" text-anchor="middle" font-size="13" font-family="Inter, sans-serif" fill="#2d2a3e" font-weight="600">R<tspan font-size="9" dy="3">eq</tspan></text>
-
-                        <line x1="345" y1="295" x2="410" y2="295" stroke="#2d2a3e" stroke-width="1.8"/>
-                        <text x="445" y="300" text-anchor="middle" font-size="14" font-family="Inter, sans-serif" fill="#2d2a3e">T<tspan font-size="10" dy="4">ext</tspan></text>
-
+                        <text x="165" y="300" text-anchor="middle" font-size="14" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">T<tspan font-size="10" dy="4">int</tspan></text>
+                        <line x1="193" y1="295" x2="255" y2="295" stroke="#2d2a3e" stroke-width="1.8" />
+                        <rect x="255" y="272" width="90" height="46" rx="6" fill="#fff" stroke="#2d2a3e"
+                            stroke-width="1.4" />
+                        <text x="300" y="300" text-anchor="middle" font-size="13" font-family="Inter, sans-serif"
+                            fill="#2d2a3e" font-weight="600">R<tspan font-size="9" dy="3">eq</tspan></text>
+                        <line x1="345" y1="295" x2="410" y2="295" stroke="#2d2a3e" stroke-width="1.8" />
+                        <text x="445" y="300" text-anchor="middle" font-size="14" font-family="Inter, sans-serif"
+                            fill="#2d2a3e">T<tspan font-size="10" dy="4">ext</tspan></text>
                     </svg>
                 </div>
 
@@ -278,7 +266,8 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-content"><strong>$t_0 = 0\;\text{h}$</strong> (20 h) — On coupe le chauffage</div>
+                        <div class="timeline-content"><strong>$t_0 = 0\;\text{h}$</strong> (20 h) — On coupe le chauffage
+                        </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
@@ -301,19 +290,13 @@
 
                 <div class="formula-box">
                     <p class="formula-title">Capacité thermique du béton</p>
-
                     <p class="text" style="margin-bottom:12px; max-width:none;">
                         On a $C_{\text{béton}} = \rho_{\text{béton}}\, c_{\text{béton}}\, V_{\text{béton}}$. Déterminons chaque grandeur :
                     </p>
-
                     <p class="text" style="margin-bottom:8px; max-width:none;">
                         <strong>Capacité thermique massique :</strong> Pour un solide et en considérant que le béton est constitué de SiO₂,
                     </p>
-
-
                     $$c_{\text{béton}} = \frac{C_{\text{molaire}}}{M_{\text{béton}}} = \frac{25}{60 \times 10^{-3}} \approx 400\;\text{J·kg}^{-1}\text{·K}^{-1}$$
-
-
                     <p class="text" style="margin-bottom:8px; max-width:none;">
                         <strong>Volume participant :</strong> On considère que le sol, le plafond et les murs (on n'en compte que 2 sur 3 pour ne pas compter deux fois le même mur entre salles adjacentes) sont faits de béton :
                     </p>
@@ -322,7 +305,6 @@
                         En prenant une épaisseur participante de 10 cm :
                     </p>
                     $$V_{\text{béton}} = 220 \times 0{,}1 \approx 22\;\text{m}^3$$
-
                     <p class="text" style="margin-bottom:8px; max-width:none;">
                         <strong>Résultat :</strong>
                     </p>
@@ -385,8 +367,7 @@
                 <div class="formula-box">
                     <p class="formula-title">Équation différentielle avec chauffage</p>
                     $$C_m \frac{dT}{dt} = P_{r} - \frac{T - T_{\text{ext}}}{R_{\text{eq}}}$$ $$\Longrightarrow \quad \frac{dT}{dt} + \frac{1}{C_m R_{\text{eq}}}\,T = \frac{T_{\text{ext}}}{C_m R_{\text{eq}}} + \frac{P_r}{C_m}$$
-                    <p class="text"> On raisonne de la même manière qu'en phase 1 pour déterminer la forme générale des solution de l'equation. Pour déterminer la constante on utilise : à $t = t_1$ la température $T(t_1) = T_1 = 14{,}1\;°\text{C}$ (calculée en phase 1)
-                    </p>
+                    <p class="text"> On raisonne de la même manière qu'en phase 1 pour déterminer la forme générale des solution de l'equation. Pour déterminer la constante on utilise : à $t = t_1$ la température $T(t_1) = T_1 = 14{,}1\;°\text{C}$ (calculée en phase 1)</p>
                 </div>
 
                 <div class="formula-box key-formula">
@@ -397,16 +378,18 @@
                 <h3>Application numérique — puissance déterminée au modèle 1</h3>
                 <p class="text">Avec la puissance $P_r = 2{,}5 \times 10^3\;\text{W}$ déterminée au modèle 1 :</p>
                 <div class="result-box">
-                    <p class="result-label">Température à <span class="no-transform">t₂</span> = 11 h (puissance standard)</p>
+                    <p class="result-label">Température à <span class="no-transform">t₂</span> = 11 h (puissance standard)
+                    </p>
                     $$T(t_2) \approx 14{,}3\;°\text{C}$$
                     <p class="result-comment">La salle n'a pas retrouvé ses 16 °C à l'arrivée des étudiants.</p>
                 </div>
 
                 <h3>Quelle puissance pour retrouver 16 °C ?</h3>
                 <div class="result-box">
-                    <p class="result-label">$P_r $ nécessaire pour avoir $T($<span class="no-transform">t₂</span>$) \approx 16\;°\text{C}$</p>
+                    <p class="result-label">$P_r$ nécessaire pour avoir $T($<span class="no-transform">t₂</span>$) \approx 16\;°\text{C}$</p>
                     $$P_r = \frac{T(t_2) - T_{\text{ext}} - (T(t_1) - T_{\text{ext}}) \exp\Big(-\frac{t_2 - t_1}{C_m R_{\text{eq}}}\Big)}{R_{\text{eq}} \Big(1 - \exp\Big(-\frac{t_2 - t_1}{C_m R_{\text{eq}}}\Big)\Big)}=5 \times 10^3\ W$$
                 </div>
+
                 <h3>Surcoût de la surchauffe matinale</h3>
                 <p class="text">La différence de puissance par rapport au régime normal est $\Delta P_r = 5\times10^3 - 2{,}5\times10^3 = 2{,}5 \times 10^{3}\;\text{W}$, fournie pendant les 5 h de réchauffement ($t_1 \to t_2$).</p>
 
@@ -422,7 +405,8 @@
 
                 <div class="conclusion-banner">
                     <p class="conclusion-calc">Économie réelle = 320 € − 260 € = <strong>60 € par nuit</strong></p>
-                    <p class="conclusion-sub">si l'on souhaite retrouver exactement 16 °C à l'arrivée des étudiants.</p>
+                    <p class="conclusion-sub">si l'on souhaite retrouver exactement 16 °C à l'arrivée des étudiants.
+                    </p>
                 </div>
             </div>
         </section>
@@ -431,12 +415,67 @@
         <section class="section-wrapper warm-bg">
             <div class="block">
                 <div class="section-number">05</div>
-                <h2> Simulation — Situation de gain optimal</h2>
+                <h2>Simulation — Situation de gain optimal</h2>
                 <div class="model-intro">
-                    <p class="text"><strong>Objectif :</strong> S'éloigner de la consigne des 6 h pour déterminer la <strong>durée d'arrêt optimale</strong> du chauffage qui maximise le gain énergétique et financier.</p>
+                    <p class="text"><strong>Objectif :</strong> S'éloigner de la consigne des 6 h pour déterminer la
+                        <strong>durée d'arrêt optimale</strong> du chauffage qui maximise le gain énergétique et financier.
+                    </p>
                 </div>
-                <div class="coming-soon">
-                    <p>🔬 Modélisation en cours…</p>
+
+                <!-- SIMULATEUR -->
+                <div class="simulator-container" id="simulatorSection">
+
+                    <!-- Chargement Pyodide -->
+                    <div class="pyodide-loading" id="pyodideLoading">
+                        <div class="loading-spinner"></div>
+                        <p>Chargement du moteur Python…</p>
+                        <p class="loading-sub">Première utilisation : ~10 secondes</p>
+                    </div>
+
+                    <!-- Entrées -->
+                    <div class="sim-grid">
+                        <div class="sim-input-group">
+                            <label for="inputText">T<sub>ext</sub> — Température extérieure moyenne la nuit(°C)</label>
+                            <input type="range" id="inputText" min="-15" max="15" value="2" step="0.5">
+                            <div class="sim-range-display"><span id="textVal">2</span> °C</div>
+                        </div>
+                        <div class="sim-input-group">
+                            <label for="inputTdesired">T<sub>int</sub> — Température souhaitée à t₂ (°C)</label>
+                            <input type="range" id="inputTdesired" min="10" max="25" value="16" step="0.5">
+                            <div class="sim-range-display"><span id="tdesiredVal">16</span> °C</div>
+                        </div>
+                        <div class="sim-input-group">
+                            <label for="inputTolerance">Tolérance sur la température souhaitée à t₂ ± (°C)</label>
+                            <input type="range" id="inputTolerance" min="0.1" max="3" value="0.5" step="0.1">
+                            <div class="sim-range-display">± <span id="toleranceVal">0.5</span> °C</div>
+                        </div>
+                    </div>
+
+                    <button class="sim-button" id="runButton" disabled>
+                        <span class="sim-button-icon">▶</span>
+                        <span class="sim-button-text">Lancer la simulation</span>
+                    </button>
+
+                    <!-- Résultats -->
+                    <div class="sim-results" id="simResults" style="display:none;">
+
+                        <!-- Erreur -->
+                        <div class="sim-error" id="simError" style="display:none;"></div>
+
+                        <!-- Méthode 1 -->
+                        <div class="sim-method-card" id="method1Card" style="display:none;">
+                            <div class="sim-method-badge">Méthode 1</div>
+                            <div class="sim-method-title"> Les radiateurs sont rallumés à la puissance P<sub>r</sub> (puissance normale de fonctionnement calculée grace à la formule du modèle 1). La durée pour réchauffer la salle est donc plus longue que pour la méthode 2.</div>
+                            <div class="sim-method-results" id="method1Results"></div>
+                        </div>
+
+                        <!-- Méthode 2 -->
+                        <div class="sim-method-card" id="method2Card" style="display:none;">
+                            <div class="sim-method-badge accent-badge">Méthode 2</div>
+                            <div class="sim-method-title">Les radiateurs sont rallumés P<sub>r_max</sub> (puissance maximal calculée à partir de la température maximale d'un radiateur environ 80°). La durée pour réchauffer la salle est donc moins longue que pour la méthode 1</div>
+                            <div class="sim-method-results" id="method2Results"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -447,8 +486,8 @@
                 <div class="section-number light-number">06</div>
                 <h2>Conclusion & Bilan</h2>
                 <p class="text light-text">
-                    En coupant le chauffage 6 h chaque nuit, la température d'une salle chute d'environ <strong>2 °C</strong>. Pour retrouver 16 °C à 7 h, il faut doubler la puissance du radiateur pendant 5 h — ce qui réduit significativement l'économie
-                    brute.
+                    En prenant 16° pour température souhaitée lors de l'ouverture et 2° pour la température exterieure la nuit, une coupure de chauffage de 6h durant la nuit entraine une baisse de temperature d'environ 2°. Pour retrouver 16 °C à 7 h, il faut donc doubler
+                    la puissance du radiateur pendant 5 h — ce qui réduit significativement l'économie brute.
                 </p>
 
                 <div class="final-recap">
@@ -466,38 +505,45 @@
                     </div>
                 </div>
 
-                <div class="note-box conclusion-note">
-                    <h4 style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#e8793b; margin-bottom:14px;">Limites du modèle</h4>
+                <p class="text light-text">
+                    Grâce à la simulation dans la dernière partie, on observe qu'il est plus optimal dans la plupart des cas de chauffer plus fort durant moins longtemps. De manière globale, on observe tout de même que, dans notre travail, l’ENISE est « trop bien isolée
+                    » : on s’attendrait normalement à observer une baisse de température plus importante durant la nuit.
+                </p>
 
+
+                <div class="note-box conclusion-note">
+                    <h4 style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#e8793b; margin-bottom:14px;">
+                        Limites du modèle</h4>
 
                     <p style="margin-bottom:12px;">
-                        <strong>1. Étanchéité parfaite (système fermé) :</strong> Joints, ouvertures, fentes... $\to$ échanges de matière avec l'extérieur $\to$ baisse de température bien plus nette
-
+                        <strong>1. Étanchéité parfaite (système fermé) :</strong> Joints, bouches de ventillation, ouvertures, fentes… → échanges de matière avec l'extérieur → baisse de température bien plus nette
                     </p>
 
                     <p style="margin-bottom:12px;">
                         <strong>2. Caractérisation du système :</strong> Système prenant en compte l'air de la pièce et une partie des murs :
-                        <br>
-                        <ul>
-                            <li>Quelle proportion des murs considérer ? $\to$ Influence majeure sur $C_m$ et les variations de température. (Variations plus importantes de 5° pour une épaisseur participante divisée par 2)</li>
-
-                            <ul>
-                                <li>Il aurait fallu étudier en détail la diffusion thermique dans le béton. Le choix des 10cm a été arbitraire.</li>
-                            </ul>
-                            <br>
-                            <li>Interactions entre les salles, les couloirs,... $\to$ Le "réservoir thermique" alimenté par les radiateurs qu'est une salle de classe est alimenté par un reservoir bien plus grand, l'ensemble de l'ENISE.</li>
-                            <br>
-                            <li>Il aurait été plus adapté (mais complexe) de considérer ces autres salles,... ainsi que les murs de la salle (notamment l'interface avec l'extérieur) comme des systèmes à part</li>
-
-                        </ul>
                     </p>
-
-
+                    <ul>
+                        <li>Quelle proportion des murs considérer ? → Influence majeure sur $C_m$ et les variations de température. (Variations plus importantes de 5° pour une épaisseur participante divisée par 2)
+                        </li>
+                        <ul>
+                            <li>Il aurait fallu étudier en détail la diffusion thermique dans le béton. Le choix des 10 cm a été arbitraire.</li>
+                        </ul>
+                        <br>
+                        <li>Interactions entre les salles, les couloirs… → Le "réservoir thermique" alimenté par les radiateurs qu'est une salle de classe est alimenté par un réservoir bien plus grand, l'ensemble de l'ENISE.</li>
+                        <br>
+                        <li>Il aurait été plus adapté (mais complexe) de considérer ces autres salles… ainsi que les murs de la salle (notamment l'interface avec l'extérieur) comme des systèmes à part.</li>
+                        <br>
+                        <p style="margin-bottom:12px;">
+                            <strong>3. Température radiateurs :</strong> On considère que lorsque les radiateurs sont rallumés ils atteignent directement la température $T_r$ ce qui est faux -> durée maximale d’extinction légèrement surestimée
+                        </p>
+                    </ul>
                 </div>
             </div>
         </section>
 
     </main>
+
+    <script src="script.js"></script>
 
 </body>
 
