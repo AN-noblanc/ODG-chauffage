@@ -480,8 +480,24 @@
                     Sur une saison de chauffe d'environ <strong>180 nuits</strong>, cela représente tout de même environ <strong>10 800 €</strong> d'économies par an — et ce chiffre pourrait augmenter avec une optimisation de la durée de coupure (modèle 3).
                 </p>
 
-                <div class="note-box conclusion-note">
-                    <strong>Limites du modèle :</strong> Température extérieure supposée constante à 2 °C, étanchéité parfaite, matériaux homogènes. Un modèle plus fin prendrait en compte la variation nocturne de T<sub>ext</sub>, la ventilation et l'hétérogénéité du bâti.
+                                <div class="note-box conclusion-note">
+                    <h4 style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#e8793b; margin-bottom:14px;">Limites du modèle</h4>
+                    
+                    <p style="margin-bottom:12px;">
+                        <strong>1. Température extérieure constante :</strong> On a supposé $T_{\text{ext}} = 2\;°\text{C}$ tout au long de la nuit. En réalité, la température extérieure varie au cours de la nuit : elle atteint souvent son minimum entre 4 h et 6 h du matin, et peut être significativement plus élevée en début de soirée. Une modélisation plus fine utiliserait un profil $T_{\text{ext}}(t)$ variable, ce qui modifierait la dynamique de refroidissement et de réchauffage.
+                    </p>
+
+                    <p style="margin-bottom:12px;">
+                        <strong>2. Étanchéité parfaite (système fermé) :</strong> Notre modèle traite la salle comme un système thermodynamique fermé, c'est-à-dire sans échange de matière avec l'extérieur. Or, en pratique, il existe toujours des <em>infiltrations d'air</em> parasites : joints de fenêtres imparfaits, jours sous les portes, bouches de ventilation mécanique contrôlée (VMC) qui peuvent fonctionner la nuit. Ces infiltrations introduisent directement de l'air extérieur à 2 °C dans la salle, provoquant un refroidissement supplémentaire <em>non pris en compte</em> par notre modèle. La chute de température réelle serait donc probablement plus importante que les 2 °C estimés.
+                    </p>
+
+                    <p style="margin-bottom:12px;">
+                        <strong>3. Matériaux homogènes :</strong> On a considéré que les parois sont constituées de matériaux parfaitement uniformes (béton pur assimilé à du SiO₂, vitrage identique partout). En réalité, les murs contiennent des <em>ponts thermiques</em> — des zones où l'isolation est plus faible, typiquement aux jonctions mur/plancher, autour des cadres de fenêtres, ou au niveau des poutres et armatures métalliques. Le béton lui-même est un matériau composite (ciment, granulats, armatures en acier, air piégé) dont la conductivité thermique varie localement. Ces hétérogénéités créent des points de fuite thermique que notre modèle ignore.
+                    </p>
+
+                    <p>
+                        <strong>4. Extrapolation uniforme :</strong> On a supposé que les 130 salles de l'ENISE sont identiques à notre salle modèle. En réalité, les salles diffèrent par leur taille, leur exposition, leur surface vitrée, leur isolation et leur équipement en radiateurs. L'économie réelle dépend de la diversité du parc immobilier de l'école. Néanmoins, l'ordre de grandeur reste pertinent, ce qui est l'objectif de cette étude.
+                    </p>
                 </div>
             </div>
         </section>
