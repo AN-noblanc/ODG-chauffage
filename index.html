@@ -482,27 +482,30 @@
                 <div class="note-box conclusion-note">
                     <h4 style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#e8793b; margin-bottom:14px;">Limites du modèle</h4>
 
+
                     <p style="margin-bottom:12px;">
-                        <strong>1. Température extérieure constante :</strong> On a supposé $T_{\text{ext}} = 2\;°\text{C}$ tout au long de la nuit. En réalité, la température extérieure varie au cours de la nuit. Une modélisation plus fine utiliserait
-                        un profil $T_{\text{ext}}(t)$ variable, ce qui modifierait la dynamique de refroidissement et de réchauffement.
+                        <strong>1. Étanchéité parfaite (système fermé) :</strong>  Joints, ouvertures, fentes... $\to$ échanges de matière avec l'extérieur $\to$ baisse de température bien plus nette 
+                    
                     </p>
 
                     <p style="margin-bottom:12px;">
-                        <strong>2. Étanchéité parfaite (système fermé) :</strong> Notre modèle traite la salle comme un système thermodynamique fermé, c'est-à-dire sans échange de matière avec l'extérieur. Or, en pratique, il existe toujours des infiltrations
-                        d'air parasites : joints de fenêtres, ouvertures sous les portes, bouches de ventilation. Ces infiltrations introduisent directement de l'air à température différente que celle intérieure, provoquant un refroidissement supplémentaire
-                        non pris en compte par notre modèle. La chute de température réelle serait donc probablement plus importante que les 2 °C estimés.
+                        <strong>2. Caractérisation du système :</strong> Système prenant en compte l'air de la pièce et une partie des murs :
+                        <br>
+                        <ul>
+                            <li>Quelle proportion des murs considérer ? $\to$ Influence majeure sur $C_m$ et les variations de température. (Variations plus importantes de 5° pour une épaisseur participante divisée par 2)</li>
+                            
+                            <ul>
+                                <li>Il aurait fallu étudier en détail la diffusion thermique dans le béton. Le choix des 10cm a été arbitraire.</li>
+                            </ul>
+                            <br>
+                            <li>Interactions entre les salles, les couloirs,... $\to$ Le "réservoir thermique" alimenté par les radiateurs qu'est une salle de classe est alimenté par un reservoir bien plus grand, l'ensemble de l'ENISE.</li>
+                            <br>
+                            <li>Il aurait été plujs adapté (mais complexe) de considérer ces autres salles,... ainsi que les murs de la salle (notamment l'interface avec l'extérieur) comme des systèmes à part</li>
+                            
+                        </ul>
                     </p>
 
-                    <p style="margin-bottom:12px;">
-                        <strong>3. Matériaux homogènes :</strong> On a considéré que les parois sont constituées de matériaux parfaitement uniformes (béton pur assimilé à du SiO₂, vitrage identique partout). En réalité, les murs contiennent des ponts
-                        thermiques, des zones où l'isolation est plus faible, typiquement aux jonctions mur/plancher, autour des cadres de fenêtres. Le béton lui-même est un matériau composite dont la conductivité thermique varie localement. Ces hétérogénéités
-                        créent des points de fuite thermique que notre modèle ignore.
-                    </p>
-
-                    <p>
-                        <strong>4. Extrapolation uniforme :</strong> On a supposé que les 130 salles de l'ENISE sont identiques à notre salle modèle. En réalité, les salles diffèrent par leur taille, leur exposition, leur surface vitrée, leur isolation
-                        et leur équipement en radiateurs. Néanmoins, notre ordre de grandeur reste pertinent.
-                    </p>
+                    
                 </div>
             </div>
         </section>
