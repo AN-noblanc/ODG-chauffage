@@ -291,7 +291,7 @@
                 </div>
 
                 <h3>Capacité thermique du système</h3>
-                <p class="text">Il faut considérer l'inertie thermique de l'air <em>et</em> du béton environnant.</p>
+                <p class="text">Il faut considérer l'inertie thermique de l'air <em>et</em> du béton environnant. Notre système considéré est l'ensemble de l'air dans la salle et une partie des murs de béton.</p>
 
                 <div class="formula-box">
                     <p class="formula-title">Capacité thermique de l'air</p>
@@ -333,7 +333,12 @@
                 <div class="formula-box key-formula">
                     <p class="formula-title">Capacité thermique totale</p>
                     $$C_m = C_{\text{air}} + C_{\text{béton}} \approx C_{\text{béton}} \approx 2{,}6 \times 10^{7}\;\text{J·K}^{-1}$$
-                    <p class="formula-note">L'inertie thermique est totalement dominée par le béton.</p>
+                    <p class="formula-note">L'inertie thermique est totalement dominée par le béton. On néglige $C_{vitre}$ devant $C_{béton}$ également.</p>
+                </div>
+
+                <div class="formula-box">
+                    <p class="formula-title">Commentaire</p>
+                    <p class="text">L'épaisseur participante nous sert à prendre en compte le fait qu'on ne s'intéresse pas à la température des murs sur l'entièreté de leur épaisseur, s'étendant de la surface intérieure à la surface extérieure, cette dernière ne nous étant pas pertinente ici.</p>
                 </div>
 
                 <!-- Phase 1 -->
