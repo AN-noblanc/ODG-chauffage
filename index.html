@@ -385,16 +385,13 @@
                 <div class="formula-box">
                     <p class="formula-title">Équation différentielle avec chauffage</p>
                     $$C_m \frac{dT}{dt} = P_{r} - \frac{T - T_{\text{ext}}}{R_{\text{eq}}}$$ $$\Longrightarrow \quad \frac{dT}{dt} + \frac{1}{C_m R_{\text{eq}}}\,T = \frac{T_{\text{ext}}}{C_m R_{\text{eq}}} + \frac{P_r}{C_m}$$
-                    <p class="formula-note">La solution générale est :</p>
-                    $$T(t) = A\, e^{-t/(C_m R_{\text{eq}})} + T_{\text{ext}} + P_r R_{\text{eq}}$$
+                    <p class="text"> On résonne de la même manière qu'en phase 1 pour déterminer la forme générale des solution de l'equation. Pour déterminer la constante on utilise : à $t = t_1$ la température $T(t_1) = T_1 = 14{,}1\;°\text{C}$ (calculée en phase 1)
+                    </p>
                 </div>
 
-                <div class="formula-box">
-                    <p class="formula-title">Condition initiale</p>
-                    <p class="text" style="max-width:none; margin-bottom:10px;">
-                        À $t = t_1$, on connaît la température $T(t_1) = T_1 = 14{,}1\;°\text{C}$ (calculée en phase 1). On détermine $A$ :
-                    </p>
-                    $$T(t_1) = A\, e^{-t_1/(C_m R_{\text{eq}})} + T_{\text{ext}} + P_r R_{\text{eq}}$$ $$\Longleftrightarrow \quad A = \big(T_1 - T_{\text{ext}} - P_r R_{\text{eq}}\big)\, e^{t_1/(C_m R_{\text{eq}})}$$
+                <div class="formula-box key-formula">
+                    <p class="formula-title">Solution — Phase 2</p>
+                    $$\boxed{T(t) = \Big(T_1 - T_{\text{ext}} - P_r R_{\text{eq}}\Big)\, \exp\!\left(\frac{t_1 - t}{C_m R_{\text{eq}}}\right) + T_{\text{ext}} + P_r R_{\text{eq}}}$$
                 </div>
 
                 <div class="formula-box key-formula">
@@ -474,18 +471,13 @@
                     </div>
                 </div>
 
-                <p class="text light-text" style="margin-top:28px;">
-                    Sur une saison de chauffe d'environ <strong>180 nuits</strong>, cela représente tout de même environ <strong>10 800 €</strong> d'économies par an — et ce chiffre pourrait augmenter avec une optimisation de la durée de coupure (modèle
-                    3).
-                </p>
-
                 <div class="note-box conclusion-note">
                     <h4 style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#e8793b; margin-bottom:14px;">Limites du modèle</h4>
 
 
                     <p style="margin-bottom:12px;">
-                        <strong>1. Étanchéité parfaite (système fermé) :</strong>  Joints, ouvertures, fentes... $\to$ échanges de matière avec l'extérieur $\to$ baisse de température bien plus nette 
-                    
+                        <strong>1. Étanchéité parfaite (système fermé) :</strong> Joints, ouvertures, fentes... $\to$ échanges de matière avec l'extérieur $\to$ baisse de température bien plus nette
+
                     </p>
 
                     <p style="margin-bottom:12px;">
@@ -493,19 +485,19 @@
                         <br>
                         <ul>
                             <li>Quelle proportion des murs considérer ? $\to$ Influence majeure sur $C_m$ et les variations de température. (Variations plus importantes de 5° pour une épaisseur participante divisée par 2)</li>
-                            
+
                             <ul>
                                 <li>Il aurait fallu étudier en détail la diffusion thermique dans le béton. Le choix des 10cm a été arbitraire.</li>
                             </ul>
                             <br>
                             <li>Interactions entre les salles, les couloirs,... $\to$ Le "réservoir thermique" alimenté par les radiateurs qu'est une salle de classe est alimenté par un reservoir bien plus grand, l'ensemble de l'ENISE.</li>
                             <br>
-                            <li>Il aurait été plujs adapté (mais complexe) de considérer ces autres salles,... ainsi que les murs de la salle (notamment l'interface avec l'extérieur) comme des systèmes à part</li>
-                            
+                            <li>Il aurait été plus adapté (mais complexe) de considérer ces autres salles,... ainsi que les murs de la salle (notamment l'interface avec l'extérieur) comme des systèmes à part</li>
+
                         </ul>
                     </p>
 
-                    
+
                 </div>
             </div>
         </section>
