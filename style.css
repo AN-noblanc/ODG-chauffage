@@ -15,9 +15,11 @@ body {
     line-height: 1.7;
 }
 
+
 /* ===========================
    HERO
    =========================== */
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -31,16 +33,17 @@ body {
 .hero-bg {
     position: absolute;
     inset: 0;
-    background:
-        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(232, 121, 59, 0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(107, 92, 231, 0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255, 200, 87, 0.05) 0%, transparent 60%);
+    background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(232, 121, 59, 0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(107, 92, 231, 0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255, 200, 87, 0.05) 0%, transparent 60%);
     animation: heroPulse 8s ease-in-out infinite alternate;
 }
 
 @keyframes heroPulse {
-    0% { opacity: 0.8; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .hero-inner {
@@ -102,13 +105,22 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 0.3; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(1.2); }
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scaleY(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleY(1.2);
+    }
 }
+
 
 /* ===========================
    SECTIONS
    =========================== */
+
 .page {
     width: 100%;
 }
@@ -121,12 +133,16 @@ body {
     background: linear-gradient(180deg, #fdf6ef 0%, #faf9f7 100%);
 }
 
+
 /* Section 04 — fond doux, pas trop sombre */
+
 .section-wrapper.medium-section {
     background: linear-gradient(180deg, #f0ece4 0%, #e8e3da 50%, #f0ece4 100%);
 }
 
+
 /* Conclusion — élégant sombre mais lisible */
+
 .section-wrapper.conclusion-wrapper {
     background: linear-gradient(180deg, #2d2850 0%, #3a3560 100%);
 }
@@ -187,9 +203,11 @@ h3 {
     color: rgba(240, 236, 228, 0.75);
 }
 
+
 /* ===========================
    CARDS
    =========================== */
+
 .cards-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -212,7 +230,10 @@ h3 {
     box-shadow: 0 12px 32px rgba(232, 121, 59, 0.12);
 }
 
-.info-card-icon { font-size: 1.5rem; margin-bottom: 8px; }
+.info-card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
 
 .info-card-value {
     font-family: 'Playfair Display', Georgia, serif;
@@ -227,9 +248,11 @@ h3 {
     margin-top: 4px;
 }
 
+
 /* ===========================
    HYPOTHESIS
    =========================== */
+
 .hypothesis-box {
     background: #fff;
     border-radius: 20px;
@@ -248,9 +271,11 @@ h3 {
     margin-bottom: 14px;
 }
 
+
 /* ===========================
    LISTS
    =========================== */
+
 .list {
     list-style: none;
     padding-left: 0;
@@ -280,12 +305,23 @@ h3 {
     margin-top: 6px;
 }
 
-.sub-list li { padding-left: 18px; margin-bottom: 4px; }
-.sub-list li::before { width: 5px; height: 5px; background: #ddd0c2; top: 11px; }
+.sub-list li {
+    padding-left: 18px;
+    margin-bottom: 4px;
+}
+
+.sub-list li::before {
+    width: 5px;
+    height: 5px;
+    background: #ddd0c2;
+    top: 11px;
+}
+
 
 /* ===========================
    TWO COL
    =========================== */
+
 .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -294,14 +330,20 @@ h3 {
 }
 
 @media (max-width: 700px) {
-    .two-col { grid-template-columns: 1fr; }
+    .two-col {
+        grid-template-columns: 1fr;
+    }
 }
 
-.col h3 { margin-top: 0; }
+.col h3 {
+    margin-top: 0;
+}
+
 
 /* ===========================
    FORMULA BOXES
    =========================== */
+
 .formula-box {
     background: #fff;
     border: 1px solid #ede8e0;
@@ -335,9 +377,11 @@ h3 {
     line-height: 1.6;
 }
 
+
 /* ===========================
    MODEL INTRO
    =========================== */
+
 .model-intro {
     background: linear-gradient(135deg, #fff8f0 0%, #ffefdb 100%);
     border-radius: 18px;
@@ -360,9 +404,11 @@ h3 {
     color: #6b4423;
 }
 
+
 /* ===========================
    RESULT BOXES
    =========================== */
+
 .result-box {
     background: #fff;
     border: 2px solid #e8793b;
@@ -393,6 +439,10 @@ h3 {
     margin-bottom: 12px;
 }
 
+.no-transform {
+    text-transform: none;
+}
+
 .result-big {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 1.45rem;
@@ -406,9 +456,11 @@ h3 {
     margin-top: 10px;
 }
 
+
 /* ===========================
    NOTE BOX
    =========================== */
+
 .note-box {
     background: #fff;
     border-left: 4px solid #ddd0c2;
@@ -427,9 +479,11 @@ h3 {
     color: rgba(240, 236, 228, 0.6);
 }
 
+
 /* ===========================
    TIMELINE
    =========================== */
+
 .timeline {
     position: relative;
     padding-left: 28px;
@@ -458,9 +512,11 @@ h3 {
     color: #5a5476;
 }
 
+
 /* ===========================
    PHASE
    =========================== */
+
 .phase-header {
     display: flex;
     align-items: center;
@@ -481,11 +537,15 @@ h3 {
     white-space: nowrap;
 }
 
-.phase-header h3 { margin: 0; }
+.phase-header h3 {
+    margin: 0;
+}
+
 
 /* ===========================
    CONCLUSION BANNER
    =========================== */
+
 .conclusion-banner {
     background: linear-gradient(135deg, #e8793b, #d4622a);
     border-radius: 20px;
@@ -515,9 +575,11 @@ h3 {
     margin-top: 8px;
 }
 
+
 /* ===========================
    COMING SOON
    =========================== */
+
 .coming-soon {
     background: #fff;
     border: 2px dashed #ddd0c2;
@@ -529,9 +591,11 @@ h3 {
     margin: 24px 0;
 }
 
+
 /* ===========================
    FINAL RECAP
    =========================== */
+
 .final-recap {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -574,9 +638,11 @@ h3 {
     color: rgba(26, 23, 48, 0.6);
 }
 
+
 /* ===========================
    SCHEMA
    =========================== */
+
 .schema-container {
     margin: 28px 0;
     background: #faf9f7;
@@ -594,31 +660,48 @@ h3 {
     margin: 0 auto;
 }
 
+
 /* ===========================
    SECTION DIVIDERS
    =========================== */
-.section-wrapper + .section-wrapper:not(.medium-section):not(.conclusion-wrapper) {
+
+.section-wrapper+.section-wrapper:not(.medium-section):not(.conclusion-wrapper) {
     border-top: 1px solid #ede8e0;
 }
+
 
 /* ===========================
    RESPONSIVE
    =========================== */
-@media (max-width: 600px) {
-    .block { padding: 60px 0; }
-    .cards-row { grid-template-columns: 1fr 1fr; }
-    .final-recap { grid-template-columns: 1fr; }
-    .section-number { font-size: 3rem; top: 45px; }
 
-    .formula-box, .result-box, .note-box,
-    .model-intro, .hypothesis-box {
+@media (max-width: 600px) {
+    .block {
+        padding: 60px 0;
+    }
+    .cards-row {
+        grid-template-columns: 1fr 1fr;
+    }
+    .final-recap {
+        grid-template-columns: 1fr;
+    }
+    .section-number {
+        font-size: 3rem;
+        top: 45px;
+    }
+    .formula-box,
+    .result-box,
+    .note-box,
+    .model-intro,
+    .hypothesis-box {
         padding: 16px 18px;
         border-radius: 14px;
     }
-
-    .result-big { font-size: 1.15rem; }
-    .conclusion-calc { font-size: 1.2rem; }
-
+    .result-big {
+        font-size: 1.15rem;
+    }
+    .conclusion-calc {
+        font-size: 1.2rem;
+    }
     .phase-header {
         flex-direction: column;
         align-items: flex-start;
