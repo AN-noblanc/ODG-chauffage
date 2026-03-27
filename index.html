@@ -236,11 +236,11 @@
                     $$P_{\text{int}\to\text{ext}} = \frac{T_{\text{int}} - T_{\text{ext}}}{R_{\text{eq}}} = \frac{16 - 2}{5{,}6 \times 10^{-3}} = 2{,}5 \times 10^{3}\;\text{W}$$
                 </div>
 
-                <p class="text">Pour maintenir la température constante, les radiateurs de la salle doivent compenser exactement les pertes : $P_{r\to\text{int}} = P_{\text{int}\to\text{ext}}$.</p>
+                <p class="text">Pour maintenir la température constante, les radiateurs de la salle doivent compenser exactement les pertes donc: $P_{r} = P_{\text{int}\to\text{ext}}$ avec $P_{r}$ la puissance fournie par les radiateurs à la salle.</p>
 
                 <div class="note-box">
-                    <strong>Vérification :</strong> $T_r = \dfrac{P_{r\to\text{int}}}{h_r\,S_r} + T_{\text{int}} = 37\;°\text{C}$ avec $h_r = 30\;\text{W·m}^{-2}\text{·K}^{-1}$ (cf. DS7) et $S_r = 4\;\text{m}^2$ la surface totale de radiateur dans une
-                    salle. Température cohérente pour un radiateur.
+                    <strong>Vérification :</strong> $T_r = \dfrac{P_{r}}{h_r\,S_r} + T_{\text{int}} = 37\;°\text{C}$ avec $h_r = 30\;\text{W·m}^{-2}\text{·K}^{-1}$ (cf. DS7) et $S_r = 4\;\text{m}^2$ la surface totale de radiateur dans une salle. Température
+                    cohérente pour un radiateur.
                 </div>
 
                 <h3>Économie par salle</h3>
@@ -380,7 +380,7 @@
                     <div class="phase-badge">Phase 2</div>
                     <h3>Réchauffement — $t_1 \to t_2$</h3>
                 </div>
-                <p class="text">Le chauffage est rallumé à une puissance $P_r$. Le premier principe donne :</p>
+                <p class="text">Le chauffage est rallumé à la puissance $P_r$ déterminée au modèle 1. Le premier principe donne :</p>
 
                 <div class="formula-box">
                     <p class="formula-title">Équation différentielle avec chauffage</p>
@@ -402,8 +402,8 @@
                     $$\boxed{T(t) = \Big(T_1 - T_{\text{ext}} - P_r R_{\text{eq}}\Big)\, \exp\!\left(\frac{t_1 - t}{C_m R_{\text{eq}}}\right) + T_{\text{ext}} + P_r R_{\text{eq}}}$$
                 </div>
 
-                <h3>Application numérique — puissance standard</h3>
-                <p class="text">Avec la puissance standard $P_r = P_{\text{int}\to\text{ext}} = 2{,}5 \times 10^3\;\text{W}$ :</p>
+                <h3>Application numérique — puissance déterminée au modèle 1</h3>
+                <p class="text">Avec la puissance $P_r = 2{,}5 \times 10^3\;\text{W}$ déterminée au modèle 1 :</p>
                 <div class="result-box">
                     <p class="result-label">Température à <span class="no-transform">t₂</span> = 11 h (puissance standard)</p>
                     $$T(t_2) \approx 14{,}3\;°\text{C}$$
