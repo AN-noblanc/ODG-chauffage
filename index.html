@@ -12,8 +12,12 @@
     <script>
         MathJax = {
             tex: {
-                inlineMath: [['$', '$']],
-                displayMath: [['$$', '$$']]
+                inlineMath: [
+                    ['$', '$']
+                ],
+                displayMath: [
+                    ['$$', '$$']
+                ]
             }
         };
     </script>
@@ -59,12 +63,12 @@
                     <div class="info-card">
                         <div class="info-card-icon">🌡️</div>
                         <div class="info-card-value">16 °C</div>
-                        <div class="info-card-label">T<sub>int</sub> (consigne)</div>
+                        <div class="info-card-label">T<sub>int</sub> température souhaitée durant l'ouverture de l'ENISE</div>
                     </div>
                     <div class="info-card">
                         <div class="info-card-icon">❄️</div>
                         <div class="info-card-value">2 °C</div>
-                        <div class="info-card-label">T<sub>ext</sub> (nuit)</div>
+                        <div class="info-card-label">T<sub>ext</sub> température moyenne durant la nuit</div>
                     </div>
                 </div>
 
@@ -111,8 +115,7 @@
                         </p>
                         <div class="formula-box">
                             <p class="formula-title">Coefficients & résistances surfaciques</p>
-                            $$h_{\text{int}} = 10\;\text{W·m}^{-2}\text{·K}^{-1} \quad \Rightarrow \quad R_{s\,\text{int}} = \frac{1}{h_{\text{int}}}$$
-                            $$h_{\text{ext}} = 20\;\text{W·m}^{-2}\text{·K}^{-1} \quad \Rightarrow \quad R_{s\,\text{ext}} = \frac{1}{h_{\text{ext}}}$$
+                            $$h_{\text{int}} = 10\;\text{W·m}^{-2}\text{·K}^{-1} \quad \Rightarrow \quad R_{s\,\text{int}} = \frac{1}{h_{\text{int}}}$$ $$h_{\text{ext}} = 20\;\text{W·m}^{-2}\text{·K}^{-1} \quad \Rightarrow \quad R_{s\,\text{ext}} = \frac{1}{h_{\text{ext}}}$$
                             <p class="formula-note">(cf. chap. 11, TD)</p>
                         </div>
                     </div>
@@ -303,8 +306,8 @@
                     </p>
 
                     <p class="text" style="margin-bottom:8px; max-width:none;">
-                        <strong>Capacité thermique massique :</strong> Pour un solide, la capacité thermique molaire est $C_{\text{molaire}} \approx 3R = 25\;\text{J·mol}^{-1}\text{·K}^{-1}$.
-                        En estimant que le béton est principalement constitué de SiO₂, on obtient une masse molaire :
+                        <strong>Capacité thermique massique :</strong> Pour un solide, la capacité thermique molaire est $C_{\text{molaire}} \approx 3R = 25\;\text{J·mol}^{-1}\text{·K}^{-1}$. En estimant que le béton est principalement constitué de SiO₂,
+                        on obtient une masse molaire :
                     </p>
                     $$M_{\text{béton}} = 2 \times 16 + 28 = 60\;\text{g·mol}^{-1}$$
                     <p class="text" style="margin-bottom:8px; max-width:none;">
@@ -347,8 +350,7 @@
 
                 <div class="formula-box">
                     <p class="formula-title">Équation différentielle</p>
-                    $$C_m \frac{dT}{dt} = P_{\text{reçue}} - P_{\text{émise}} = 0 - \frac{T - T_{\text{ext}}}{R_{\text{eq}}}$$
-                    $$\Longrightarrow \quad \frac{dT}{dt} + \frac{1}{C_m R_{\text{eq}}}\,T = \frac{T_{\text{ext}}}{C_m R_{\text{eq}}}$$
+                    $$C_m \frac{dT}{dt} = P_{\text{reçue}} - P_{\text{émise}} = 0 - \frac{T - T_{\text{ext}}}{R_{\text{eq}}}$$ $$\Longrightarrow \quad \frac{dT}{dt} + \frac{1}{C_m R_{\text{eq}}}\,T = \frac{T_{\text{ext}}}{C_m R_{\text{eq}}}$$
                     <p class="formula-note">La solution générale est de la forme :</p>
                     $$T(t) = A\, e^{-t/(C_m R_{\text{eq}})} + T_{\text{ext}}$$
                 </div>
@@ -381,8 +383,7 @@
 
                 <div class="formula-box">
                     <p class="formula-title">Équation différentielle avec chauffage</p>
-                    $$C_m \frac{dT}{dt} = P_{r} - \frac{T - T_{\text{ext}}}{R_{\text{eq}}}$$
-                    $$\Longrightarrow \quad \frac{dT}{dt} + \frac{1}{C_m R_{\text{eq}}}\,T = \frac{T_{\text{ext}}}{C_m R_{\text{eq}}} + \frac{P_r}{C_m}$$
+                    $$C_m \frac{dT}{dt} = P_{r} - \frac{T - T_{\text{ext}}}{R_{\text{eq}}}$$ $$\Longrightarrow \quad \frac{dT}{dt} + \frac{1}{C_m R_{\text{eq}}}\,T = \frac{T_{\text{ext}}}{C_m R_{\text{eq}}} + \frac{P_r}{C_m}$$
                     <p class="formula-note">La solution générale est :</p>
                     $$T(t) = A\, e^{-t/(C_m R_{\text{eq}})} + T_{\text{ext}} + P_r R_{\text{eq}}$$
                 </div>
@@ -392,8 +393,7 @@
                     <p class="text" style="max-width:none; margin-bottom:10px;">
                         À $t = t_1$, on connaît la température $T(t_1) = T_1 = 14{,}1\;°\text{C}$ (calculée en phase 1). On détermine $A$ :
                     </p>
-                    $$T(t_1) = A\, e^{-t_1/(C_m R_{\text{eq}})} + T_{\text{ext}} + P_r R_{\text{eq}}$$
-                    $$\Longleftrightarrow \quad A = \big(T_1 - T_{\text{ext}} - P_r R_{\text{eq}}\big)\, e^{t_1/(C_m R_{\text{eq}})}$$
+                    $$T(t_1) = A\, e^{-t_1/(C_m R_{\text{eq}})} + T_{\text{ext}} + P_r R_{\text{eq}}$$ $$\Longleftrightarrow \quad A = \big(T_1 - T_{\text{ext}} - P_r R_{\text{eq}}\big)\, e^{t_1/(C_m R_{\text{eq}})}$$
                 </div>
 
                 <div class="formula-box key-formula">
@@ -427,8 +427,7 @@
 
                 <div class="formula-box">
                     <p class="formula-title">À l'échelle de l'ENISE (130 salles)</p>
-                    $$E_{\text{sup, ENISE}} = 12{,}5 \times 130 = 1\,625\;\text{kWh}$$
-                    $$\text{Surcoût} = 1\,625 \times 0{,}16 = 260\;\text{€}$$
+                    $$E_{\text{sup, ENISE}} = 12{,}5 \times 130 = 1\,625\;\text{kWh}$$ $$\text{Surcoût} = 1\,625 \times 0{,}16 = 260\;\text{€}$$
                 </div>
 
                 <div class="conclusion-banner">
@@ -458,7 +457,8 @@
                 <div class="section-number light-number">06</div>
                 <h2>Conclusion & Bilan</h2>
                 <p class="text light-text">
-                    En coupant le chauffage 6 h chaque nuit, la température d'une salle chute d'environ <strong>2 °C</strong>. Pour retrouver 16 °C à 7 h, il faut doubler la puissance du radiateur pendant 5 h — ce qui réduit significativement l'économie brute.
+                    En coupant le chauffage 6 h chaque nuit, la température d'une salle chute d'environ <strong>2 °C</strong>. Pour retrouver 16 °C à 7 h, il faut doubler la puissance du radiateur pendant 5 h — ce qui réduit significativement l'économie
+                    brute.
                 </p>
 
                 <div class="final-recap">
@@ -477,26 +477,33 @@
                 </div>
 
                 <p class="text light-text" style="margin-top:28px;">
-                    Sur une saison de chauffe d'environ <strong>180 nuits</strong>, cela représente tout de même environ <strong>10 800 €</strong> d'économies par an — et ce chiffre pourrait augmenter avec une optimisation de la durée de coupure (modèle 3).
+                    Sur une saison de chauffe d'environ <strong>180 nuits</strong>, cela représente tout de même environ <strong>10 800 €</strong> d'économies par an — et ce chiffre pourrait augmenter avec une optimisation de la durée de coupure (modèle
+                    3).
                 </p>
 
-                                <div class="note-box conclusion-note">
+                <div class="note-box conclusion-note">
                     <h4 style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#e8793b; margin-bottom:14px;">Limites du modèle</h4>
-                    
+
                     <p style="margin-bottom:12px;">
-                        <strong>1. Température extérieure constante :</strong> On a supposé $T_{\text{ext}} = 2\;°\text{C}$ tout au long de la nuit. En réalité, la température extérieure varie au cours de la nuit. Une modélisation plus fine utiliserait un profil $T_{\text{ext}}(t)$ variable, ce qui modifierait la dynamique de refroidissement et de réchauffage.
+                        <strong>1. Température extérieure constante :</strong> On a supposé $T_{\text{ext}} = 2\;°\text{C}$ tout au long de la nuit. En réalité, la température extérieure varie au cours de la nuit. Une modélisation plus fine utiliserait
+                        un profil $T_{\text{ext}}(t)$ variable, ce qui modifierait la dynamique de refroidissement et de réchauffage.
                     </p>
 
                     <p style="margin-bottom:12px;">
-                        <strong>2. Étanchéité parfaite (système fermé) :</strong> Notre modèle traite la salle comme un système thermodynamique fermé, c'est-à-dire sans échange de matière avec l'extérieur. Or, en pratique, il existe toujours des infiltrations d'air parasites : joints de fenêtres, ouvertures sous les portes, bouches de ventilation. Ces infiltrations introduisent directement de l'air à température différente que celle intérieure, provoquant un refroidissement supplémentaire non pris en compte par notre modèle. La chute de température réelle serait donc probablement plus importante que les 2 °C estimés.
+                        <strong>2. Étanchéité parfaite (système fermé) :</strong> Notre modèle traite la salle comme un système thermodynamique fermé, c'est-à-dire sans échange de matière avec l'extérieur. Or, en pratique, il existe toujours des infiltrations
+                        d'air parasites : joints de fenêtres, ouvertures sous les portes, bouches de ventilation. Ces infiltrations introduisent directement de l'air à température différente que celle intérieure, provoquant un refroidissement supplémentaire
+                        non pris en compte par notre modèle. La chute de température réelle serait donc probablement plus importante que les 2 °C estimés.
                     </p>
 
                     <p style="margin-bottom:12px;">
-                        <strong>3. Matériaux homogènes :</strong> On a considéré que les parois sont constituées de matériaux parfaitement uniformes (béton pur assimilé à du SiO₂, vitrage identique partout). En réalité, les murs contiennent des ponts thermiques, des zones où l'isolation est plus faible, typiquement aux jonctions mur/plancher, autour des cadres de fenêtres. Le béton lui-même est un matériau composite dont la conductivité thermique varie localement. Ces hétérogénéités créent des points de fuite thermique que notre modèle ignore.
+                        <strong>3. Matériaux homogènes :</strong> On a considéré que les parois sont constituées de matériaux parfaitement uniformes (béton pur assimilé à du SiO₂, vitrage identique partout). En réalité, les murs contiennent des ponts
+                        thermiques, des zones où l'isolation est plus faible, typiquement aux jonctions mur/plancher, autour des cadres de fenêtres. Le béton lui-même est un matériau composite dont la conductivité thermique varie localement. Ces hétérogénéités
+                        créent des points de fuite thermique que notre modèle ignore.
                     </p>
 
                     <p>
-                        <strong>4. Extrapolation uniforme :</strong> On a supposé que les 130 salles de l'ENISE sont identiques à notre salle modèle. En réalité, les salles diffèrent par leur taille, leur exposition, leur surface vitrée, leur isolation et leur équipement en radiateurs. Néanmoins, notre ordre de grandeur reste pertinent.
+                        <strong>4. Extrapolation uniforme :</strong> On a supposé que les 130 salles de l'ENISE sont identiques à notre salle modèle. En réalité, les salles diffèrent par leur taille, leur exposition, leur surface vitrée, leur isolation
+                        et leur équipement en radiateurs. Néanmoins, notre ordre de grandeur reste pertinent.
                     </p>
                 </div>
             </div>
